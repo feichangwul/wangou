@@ -5,7 +5,7 @@ $conf['debug']['level']=5;
 /*		数据库配置		*/
 $conf['db']['dsn']='mysql:host=localhost;dbname=wanjinyule';
 $conf['db']['user']='root';
-$conf['db']['password']='root';//$conf['db']['password']='!!yujin@@';
+$conf['db']['password']='';//$conf['db']['password']='!!yujin@@';
 $conf['db']['charset']='utf8';
 $conf['db']['prename']='ssc_';
 

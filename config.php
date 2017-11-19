@@ -7,7 +7,7 @@ $conf['db']['dsn']='mysql:host=localhost;dbname=wanjinyule;charset=utf8';
 $dbHost='localhost';
 $baseName='wanjinyule';
 $conf['db']['user']='root';
-$conf['db']['password']='root';// $conf['db']['password']='!!yujin@@';
+$conf['db']['password']='';// $conf['db']['password']='!!yujin@@';
 $conf['db']['charset']='utf8';
 $conf['db']['prename']='ssc_';
 
