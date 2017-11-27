@@ -1,9 +1,10 @@
 <?php
-require_once ('lib/core/DBAccess.class');
-require_once ('lib/core/Object.class');
-require_once ('wjaction/default/WebBase.class.php');
-require_once ('wjaction/default/WebLoginBase.class.php');
-require_once ('config.php');
+
+require_once __DIR__ . '/lib/core/DBAccess.class';
+require_once __DIR__ . '/lib/core/Object.class';
+require_once __DIR__ . '/wjaction/default/WebBase.class.php';
+require_once __DIR__ . '/wjaction/default/WebLoginBase.class.php';
+require_once __DIR__ . '/config.php';
 if (!function_exists('getallheaders')) {
     function getallheaders()
     {
@@ -52,7 +53,7 @@ $control = ucfirst($control);
 if (strpos($action, '-') !== false) {
     list($action, $page) = explode('-', $action);
 }
-$file = $_SERVER['DOCUMENT_ROOT']."/".$conf['action']['modals'] . $control . '.class.php';
+$file = $_SERVER['DOCUMENT_ROOT'] . "/" . $conf['action']['modals'] . $control . '.class.php';
 if (!is_file($file)) notfound('找不到控制器');
 try {
     require_once($file);

@@ -11,7 +11,7 @@ class WebLoginBase extends WebBase{
 	function __construct($dsn, $user='', $password=''){
 		session_start();
 		if(!$_SESSION[$this->memberSessionName]){
-			header('location: /index.php/user/logout');
+			header('location: /index.php/User/logout');
 			exit('您没有登录');
 		}
 		try{
@@ -20,7 +20,7 @@ class WebLoginBase extends WebBase{
 
 			// 限制同一个用户只能在一个地方登录
 			if(!$this->getValue("select isOnLine from ssc_member_session where uid={$this->user['uid']} and session_key=? order by id desc limit 1", session_id())){
-				header('location: /index.php/user/logout');
+				header('location: /index.php/User/logout');
 				exit('您已经退出登录，请重新登录');
 			}
 		}catch(Exception $e){
