@@ -169,7 +169,7 @@ class System extends AdminBase{
 		if(!$id=intval($id)) throw new Exception('参数出错');
 		$sql="update {$this->prename}member_bank set enable=not enable where id=$id";
 		if($this->update($sql)){
-			$chikaren=$this->getValue("select username from {$this->prename}member_bank where uid=?", $uid);
+			$chikaren=$this->getValue("select username from {$this->prename}member_bank where uid=?", $id);
 			$this->addLog(11,$this->adminLogType[11].'[开关操作ID:'.$id.']',$id,$chikaren);
 			echo '操作成功';
 		}else{
@@ -181,7 +181,7 @@ class System extends AdminBase{
 		if(!$id=intval($id)) throw new Exception('参数出错');
 		$sql="update {$this->prename}sysadmin_bank set enable=not enable where id=$id";
 		if($this->update($sql)){
-			$chikaren=$this->getValue("select username from {$this->prename}sysadmin_bank where uid=?", $uid);
+			$chikaren=$this->getValue("select username from {$this->prename}sysadmin_bank where uid=?", $id);
 			$this->addLog(11,$this->adminLogType[11].'[开关操作ID:'.$id.']',$id,$chikaren);
 			echo '操作成功';
 		}else{

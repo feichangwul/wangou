@@ -1,7 +1,7 @@
 <?php
 class kjdatas extends AdminBase{
 	/**
-	 * ¿ª½±¼ì²â
+	 * å¼€å¥–æ£€æµ‹
 	 */
 	public final function tests(){
 		$this->display('kjdatas/list.php');

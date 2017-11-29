@@ -99,7 +99,7 @@ body {
               <td>&nbsp;</td>
               <td height="21"><table cellSpacing="0" cellPadding="0" width="100%" border="0" height="328">
                   <tr>
-                    <td height="164" colspan="2" align="middle"><form target="ajax" onajax="checkLogin" call="doLogin" action="/admin778899.php/user/checkLogined" method="post" >
+                    <td height="164" colspan="2" align="middle"><form target="ajax" onajax="checkLogin" call="doLogin" action="/index.php/User/checkLogined" method="post" >
                         <table cellSpacing="0" cellPadding="0" width="100%" border="0" height="150">
                           <tr>
                             <td width="13%" height="38" class="login_hui_text"><span class="login_txt">管理员:&nbsp;&nbsp; </span></td>

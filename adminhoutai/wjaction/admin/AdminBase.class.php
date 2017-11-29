@@ -6,7 +6,7 @@
 class AdminBase extends Object
 {
     private $adminSessionName = 'admin-session-name';
-    private $user;
+    protected $user;
     public $headers;
     public $page = 1;
     public $types; // 彩票种类信息数组

@@ -1,7 +1,6 @@
 <?php
 if (!function_exists('getallheaders')) {
-    function getallheaders()
-    {
+    function getallheaders() {
         foreach ($_SERVER as $name => $value) {
             if ($name == 'HTTP_X_CALL') {
                 $headers['x-call'] = $value;
@@ -14,14 +13,19 @@ if (!function_exists('getallheaders')) {
         return $headers;
     }
 }
-require __DIR__ . '/lib/core/DBAccess.class';
-require __DIR__ . '/lib/core/Object.class';
-require __DIR__ . '/wjaction/admin/AdminBase.class.php';
-require __DIR__ . '/config.admin.php';
+require_once __DIR__ . '/lib/core/DBAccess.class';
+require_once __DIR__ . '/lib/core/Object.class';
+require_once __DIR__ . '/wjaction/admin/AdminBase.class.php';
+require_once __DIR__ . '/config.admin.php';
+
 //print_r($_SERVER);exit;
 $para = array();
+
 if (isset($_SERVER['PATH_INFO'])) {
     $para = explode('/', substr($_SERVER['PATH_INFO'], 1));
+    if (strpos($para[0], 'index') !== false) {
+        array_shift($para);
+    }
     if ($control = array_shift($para)) {
         if (count($para)) {
             $action = array_shift($para);
@@ -41,12 +45,13 @@ $control = ucfirst($control);
 if (strpos($action, '-') !== false) {
     list($action, $page) = explode('-', $action);
 }
+
 $file = $conf['action']['modals'] . $control . '.class.php';
 if (!is_file($file)) {
     notfound('找不到控制器');
 }
 try {
-    require $file;
+    require_once $file;
 } catch (Exception $e) {
     print_r($e);
     exit;
@@ -54,22 +59,30 @@ try {
 if (!class_exists($control)) {
     notfound('找不到控制器1');
 }
-$jms = new $control($conf['db']['dsn'], $conf['db']['user'], $conf['db']['password']);
-$jms->debugLevel = $conf['debug']['level'];
+
+try {
+    $jms = new $control($conf['db']['dsn'], $conf['db']['user'], $conf['db']['password']);
+    $jms->debugLevel = $conf['debug']['level'];
+} catch (Exception $e) {
+    var_dump($e);die();
+}
+
 if (!method_exists($jms, $action)) {
     notfound('方法不存在');
 }
-
 
 $reflection = new ReflectionMethod($jms, $action);
 if ($reflection->isStatic()) {
     notfound('不允许调用Static修饰的方法');
 }
+
 if (!$reflection->isFinal()) {
     notfound('只能调用final修饰的方法');
 }
+
 $jms->controller = $control;
 $jms->action = $action;
+
 $jms->charset = $conf['db']['charset'];
 $jms->cacheDir = $conf['cache']['dir'];
 $jms->setCacheDir($conf['cache']['dir']);
@@ -80,15 +93,19 @@ $jms->prename = $conf['db']['prename'];
 if (method_exists($jms, 'getSystemSettings')) {
     $jms->getSystemSettings();
 }
+
 if (isset($page)) {
     $jms->page = $page;
 }
+
 if ($q = $_SERVER['QUERY_STRING']) {
     $para = array_merge($para, explode('/', $q));
 }
+
 if ($para == null) {
     $para = array();
 }
+
 $jms->headers = getallheaders();
 if (isset($jms->headers['x-call'])) {
     // 函数调用
@@ -106,6 +123,7 @@ if (isset($jms->headers['x-call'])) {
     if ($accept) {
         header('content-Type: application/json');
     }
+
     try {
         ob_start();
         if ($accept) {
@@ -121,6 +139,7 @@ if (isset($jms->headers['x-call'])) {
     // AJAX调用
     header('content-Type: application/json');
     try {
+
         //echo json_encode($reflection->invokeArgs($jms, $para));
         echo json_encode(call_user_func_array(array($jms, $action), $para));
     } catch (Exception $e) {
@@ -128,6 +147,7 @@ if (isset($jms->headers['x-call'])) {
     }
 } else {
     // 普通请求
+
     header('content-Type: text/html;charset=utf-8');
     //$reflection->invokeArgs($jms, $para);
     try {
@@ -137,8 +157,8 @@ if (isset($jms->headers['x-call'])) {
     }
 }
 $jms = null;
-function notfound($message)
-{
+
+function notfound($message) {
     header('content-Type: text/plain; charset=utf8');
     header('HTTP/1.1 404 Not Found');
     die($message);
@@ -160,26 +180,24 @@ foreach ($_GET as $key => $value) {
         match($value);
     }
 }
-function match($ag)
-{
+
+function match($ag) {
     if (
-//      preg_match("/ /", $ag) ||
+//		preg_match("/ /", $ag) ||
         preg_match("/\'/", $ag) ||
         preg_match("/\"/", $ag) ||
         preg_match("/union/", $ag) ||
         preg_match("/ssc_/", $ag) ||
         preg_match("/UNION/", $ag) ||
-//      preg_match("/,/", $ag) ||
-        //      preg_match("/;/", $ag) ||
+//		preg_match("/,/", $ag) ||
+        //		preg_match("/;/", $ag) ||
         preg_match("/%/", $ag) ||
         preg_match("/\(/", $ag) ||
         preg_match("/\)/", $ag)) {
         notfound('参数错误！');
     }
 }
-
-function match2($ag)
-{
+function match2($ag) {
     if (strlen($ag) > 28) {
         notfound('密码错误！');
     }

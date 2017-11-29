@@ -3,7 +3,7 @@ class Report extends WebLoginBase{
 	public $type;
 	public $pageSize=20;
 	
-	// ÕÊ±äÁÐ±í
+	// å¸å˜åˆ—è¡¨
 	public final function coin($type=0){
 		$this->type=intval($type);
 		$this->action='coinlog';
@@ -15,7 +15,7 @@ class Report extends WebLoginBase{
 		$this->display('report/coin-log.php');
 	}
 
-	// ×Ü½áËã²éÑ¯
+	// æ€»ç»“ç®—æŸ¥è¯¢
 	public final function count(){
 		$this->action='countSearch';
 		$this->display('report/count.php');
