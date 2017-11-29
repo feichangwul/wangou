@@ -59,6 +59,8 @@ $jms->debugLevel = $conf['debug']['level'];
 if (!method_exists($jms, $action)) {
     notfound('方法不存在');
 }
+
+
 $reflection = new ReflectionMethod($jms, $action);
 if ($reflection->isStatic()) {
     notfound('不允许调用Static修饰的方法');
