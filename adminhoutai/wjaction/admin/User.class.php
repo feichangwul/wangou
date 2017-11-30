@@ -1,14 +1,13 @@
 <?php
-class user extends Object{
+class User extends Object{
 	private $vcodeSessionName='vcode-session-name';
 	
 	function __construct($dsn, $user='', $password=''){
 		session_start();
 		parent::__construct($dsn, $user, $password);
 	}
-	
+
 	public final function login(){
-	    echo 'aaaaa';die();
 		header('content-Type: text/html;charset=utf8');
 		$this->display('login8421039.php');
 	}
