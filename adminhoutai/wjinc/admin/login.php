@@ -24,18 +24,15 @@ function doLogin(err, data){
 		alert(err);
 		$("#vcode").trigger("click");
 	}else{
-		location='\x2f\x61\x64\x6d\x69\x6e\x37\x37\x38\x38\x39\x39\x2e\x70\x68\x70\x2f\x75\x73\x65\x72\x2f\x6c\x6f\x67\x69\x6e\x65\x64';
+	    location = '/index.php/user/logined';
 	}
 }
 </script>
 <style type="text/css">
 <!--
 body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-color: #1b365f;
+    margin: 0px;
+    background-color: #1b365f;
 }
 -->
 </style>

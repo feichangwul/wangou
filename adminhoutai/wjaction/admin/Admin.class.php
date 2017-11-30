@@ -5,7 +5,7 @@ class Admin extends AdminBase{
 	}
 	
 	public final function login($params=''){
-		$this->display('login8421039.php');
+		$this->display('login.php');
 	}
 	
 }

@@ -13,8 +13,8 @@ if (!function_exists('getallheaders')) {
         return $headers;
     }
 }
-require_once __DIR__ . '/lib/core/DBAccess.class';
-require_once __DIR__ . '/lib/core/Object.class';
+require_once __DIR__ . '/lib/core/DBAccess.class.php';
+require_once __DIR__ . '/lib/core/Object.class.php';
 require_once __DIR__ . '/wjaction/admin/AdminBase.class.php';
 require_once __DIR__ . '/config.admin.php';
 
@@ -123,7 +123,6 @@ if (isset($jms->headers['x-call'])) {
     if ($accept) {
         header('content-Type: application/json');
     }
-
     try {
         ob_start();
         if ($accept) {
@@ -139,8 +138,6 @@ if (isset($jms->headers['x-call'])) {
     // AJAX调用
     header('content-Type: application/json');
     try {
-
-        //echo json_encode($reflection->invokeArgs($jms, $para));
         echo json_encode(call_user_func_array(array($jms, $action), $para));
     } catch (Exception $e) {
         $jms->error($e->getmessage());

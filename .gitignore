@@ -1,10 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
-.gitignore
-.idea/inspectionProfiles/
-.idea/vcs.xml
-.idea/workspace.xml
+.idea/*
 #adminhoutai/wjinc/admin/system/_notes/
 check.txt
 desktop.ini
 folderhighlight-5148c409-29e1-473d-bdcc-3db95b73e888.ico
 necessary/kaijq/log/
+_cache/
+adminhoutai/_cache/
