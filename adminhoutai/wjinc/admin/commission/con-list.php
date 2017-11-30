@@ -21,7 +21,7 @@
     <header>
 		<h3 class="tabs_involved">消费佣金发放列表
 		<div class="submit_link wz">
-			<form action="/admin778899.php/Commission/updateCommStatus" class="submit_link wz" target="ajax" datatype="html" call="conCommHandle">
+			<form action="/index.php/Commission/updateCommStatus" class="submit_link wz" target="ajax" datatype="html" call="conCommHandle">
               	<input type="hidden" name="commStatusName" value="conCommStatus" />
 				<input type="submit" class="alt_btn" value="更新发放状态" />
             </form>
@@ -49,7 +49,7 @@
 			<td><?php if($var['type']){echo'代理';}else{echo '会员';}?></td>
 			<td><?=$var['betAmount']?></td>
 			<td>
-				<a href="/admin778899.php/Commission/conComSingle/<?=$var['uid']?>" target="ajax" call="conCommHandle" dataType="html">发放佣金</a>
+				<a href="/index.php/Commission/conComSingle/<?=$var['uid']?>" target="ajax" call="conCommHandle" dataType="html">发放佣金</a>
             </td>
 		</tr> 
 	<?php }else{ ?>

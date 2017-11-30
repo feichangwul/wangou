@@ -51,7 +51,7 @@ $(function(){
     <header>
     	<h3 class="tabs_involved">兑换订单
             <div class="submit_link wz">
-            	<form action="/admin778899.php/Score/pointList" target="ajax" call="defaultSearch" dataType="html">
+            	<form action="/index.php/Score/pointList" target="ajax" call="defaultSearch" dataType="html">
                 会员：<input name="username" type="text" style="width:100px;" value="用户名"/>&nbsp;&nbsp;
                 时间：从 <input type="date" style="width:75px;" name="fromTime"/> 到 <input type="date" style="width:75px;" name="toTime"/>&nbsp;&nbsp;
                 <select name="type" style="width:90px;">
@@ -116,17 +116,17 @@ $(function(){
 			<td><?=date('Y-m-d H:i:s',$var['swapTime'])?></td> 
 			<td><span class="state spn4 <?php if($state=="完成") echo 'spn5'?> <?php if(!$var['enable']) echo 'spn6'?>"><?=$state?></span></td> 
 			<td>
-            	<?php if($state!="完成"&&$var['enable']){?><a href="/admin778899.php/Score/pointState/<?=$var['id']?>/<?=$var['state']?>" target="ajax" call="pointHandle" dataType="json"><?=$statenext?></a> | <?php }?>
+            	<?php if($state!="完成"&&$var['enable']){?><a href="/index.php/Score/pointState/<?=$var['id']?>/<?=$var['state']?>" target="ajax" call="pointHandle" dataType="json"><?=$statenext?></a> | <?php }?>
                 
 				<?php if($statenext!="【完成】"&&$state!="完成"){
 					if($var['enable']){?>
-                <a href="/admin778899.php/Score/pointEnable/<?=$var['id']?>/<?=$var['enable']?>" target="ajax" call="pointHandle" dataType="json">取消</a> |
+                <a href="/index.php/Score/pointEnable/<?=$var['id']?>/<?=$var['enable']?>" target="ajax" call="pointHandle" dataType="json">取消</a> |
 				<?php }else{?>
-                <a href="/admin778899.php/Score/pointEnable/<?=$var['id']?>/<?=$var['enable']?>" target="ajax" call="pointHandle" dataType="json">重启</a> |
+                <a href="/index.php/Score/pointEnable/<?=$var['id']?>/<?=$var['enable']?>" target="ajax" call="pointHandle" dataType="json">重启</a> |
                 <?php }
 				}?>
                 
-                <a href="/admin778899.php/Score/pointDel/<?=$var['id']?>" target="ajax" call="pointHandle" dataType="json">删除</a>
+                <a href="/index.php/Score/pointDel/<?=$var['id']?>" target="ajax" call="pointHandle" dataType="json">删除</a>
             </td> 
 		</tr>
 		<?php }else{ ?>

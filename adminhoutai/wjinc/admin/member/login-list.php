@@ -33,7 +33,7 @@
 <input type="hidden" value="<?=$this->user['username']?>" />
     <header>
     	<h3 class="tabs_involved">登录日志
-            <form action="/admin778899.php/member/loginLog" target="ajax" dataType="html" call="defaultSearch" class="submit_link wz">
+            <form action="/index.php/member/loginLog" target="ajax" dataType="html" call="defaultSearch" class="submit_link wz">
                 会员名：<input type="text" class="alt_btn" style="width:100px;" name="username"/>&nbsp;&nbsp;
 				IP：<input type="text" class="alt_btn" style="width:100px;" name="ip"/>&nbsp;&nbsp;
                 时间：从 <input type="date" class="alt_btn" name="fromTime"/> 到 <input type="date" class="alt_btn" name="toTime"/>&nbsp;&nbsp;

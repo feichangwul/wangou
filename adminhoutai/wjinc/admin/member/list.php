@@ -31,7 +31,7 @@ function changeFormAction(userSort){
 <input type="hidden" value="<?=$this->user['username']?>" />
     <header>
     	<h3 class="tabs_involved">用户列表
-            <form class="submit_link wz" action="/admin778899.php/Member/listUser" dataType="html" target="ajax"  method="get" onajax="userSortBeforeSubmit" call="memberUserList">
+            <form class="submit_link wz" action="/index.php/Member/listUser" dataType="html" target="ajax"  method="get" onajax="userSortBeforeSubmit" call="memberUserList">
             	排序：
                 <input name="paixu"  type="hidden" value="regTime" />
 				<input type="submit" sort="uid" onclick="changeFormAction(this)" value="默认排序"/>&nbsp;&nbsp;

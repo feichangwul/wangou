@@ -25,7 +25,7 @@
 				<td><input type="checkbox" name="enable" value="1" <?=$this->iff($var['enable'],'checked')?>/></td>
                
 				<td><input type="text" name="sort"  class="textWid1" value="<?=$var['sort']?>"/></td>
-				<td><a href="/admin778899.php/system/updateType/<?=$var['id']?>" target="ajax" method="POST" onajax="sysBeforeUpdateType" call="sysUpdateType">保存修改</a></td>
+				<td><a href="/index.php/system/updateType/<?=$var['id']?>" target="ajax" method="POST" onajax="sysBeforeUpdateType" call="sysUpdateType">保存修改</a></td>
 			</tr>
 		<?php  } ?>
 		</tbody>

@@ -1,7 +1,7 @@
 <article class="module width_full">
 <input type="hidden" value="<?=$this->user['username']?>" />
 	<header><h3 class="tabs_involved">系统设置</h3></header>
-	<form name="system_install" action="/admin778899.php/system/updateSettings" method="post" target="ajax" call="sysSettings" onajax="sysSettingsBefor">
+	<form name="system_install" action="/index.php/system/updateSettings" method="post" target="ajax" call="sysSettings" onajax="sysSettingsBefor">
 	<table class="tablesorter left" cellspacing="0" width="100%">
 		<thead>
 			<tr>
@@ -163,15 +163,15 @@
 			</tr>
 			<tr>
 				<td>清理账号规则</td>
-				<td>账户金额低于&nbsp;<input type="text" class="textWid1" value="<?=$this->settings['clearMemberCoin']?>" name="clearMemberCoin" id="clearMemberCoin"/>元，&nbsp;且&nbsp;<input type="text" class="textWid1" value="<?=$this->settings['clearMemberDate']?>" name="clearMemberDate" id="clearMemberDate"/> &nbsp;天未登录&nbsp;&nbsp;<a method="post" target="ajax" onajax="clearUsersBefor" call="clearDataSuccess" title="数据清除不可修复，是否继续！" dataType="json" id="alt_btn3" href="/admin778899.php/System/clearUser">清理</a></td>
+				<td>账户金额低于&nbsp;<input type="text" class="textWid1" value="<?=$this->settings['clearMemberCoin']?>" name="clearMemberCoin" id="clearMemberCoin"/>元，&nbsp;且&nbsp;<input type="text" class="textWid1" value="<?=$this->settings['clearMemberDate']?>" name="clearMemberDate" id="clearMemberDate"/> &nbsp;天未登录&nbsp;&nbsp;<a method="post" target="ajax" onajax="clearUsersBefor" call="clearDataSuccess" title="数据清除不可修复，是否继续！" dataType="json" id="alt_btn3" href="/index.php/System/clearUser">清理</a></td>
 			</tr>
 			<tr>
 				<td>清理数据</td>
-				<td>清除当前 <input type="date" readonly="readonly" id="clearData" /> 以前的投注、帐变、管理员日志、会员登录日志、提现、充值、采集记录数据&nbsp;&nbsp;<a method="post" target="ajax" onajax="clearDataBefor" call="clearDataSuccess" title="数据清除不可修复，是否继续！" dataType="json" id="alt_btn3" href="/admin778899.php/System/clearData">清理</a></td>
+				<td>清除当前 <input type="date" readonly="readonly" id="clearData" /> 以前的投注、帐变、管理员日志、会员登录日志、提现、充值、采集记录数据&nbsp;&nbsp;<a method="post" target="ajax" onajax="clearDataBefor" call="clearDataSuccess" title="数据清除不可修复，是否继续！" dataType="json" id="alt_btn3" href="/index.php/System/clearData">清理</a></td>
 			</tr>
 			<tr>
 				<td>清理数据 2</td>
-				<td>仅清除当前 <input type="date" readonly="readonly" id="clearData2" /> 以前的采集记录数据&nbsp;&nbsp;<a method="post" target="ajax" onajax="clearDataBefor2" call="clearDataSuccess2" title="采集记录数据清除不可修复，是否继续！" dataType="json" id="alt_btn3" href="/admin778899.php/System/clearData2">清理</a></td>
+				<td>仅清除当前 <input type="date" readonly="readonly" id="clearData2" /> 以前的采集记录数据&nbsp;&nbsp;<a method="post" target="ajax" onajax="clearDataBefor2" call="clearDataSuccess2" title="采集记录数据清除不可修复，是否继续！" dataType="json" id="alt_btn3" href="/index.php/System/clearData2">清理</a></td>
 			</tr>
 			<tr>
 				<td>赠送活动</td>

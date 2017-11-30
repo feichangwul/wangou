@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/skin/admin/layout.css" media="all" />
 </head>
 <body>
-<form name="system_addBanklist" action="/admin778899.php/system/updateBanklist" enctype="multipart/form-data" method="POST">
+<form name="system_addBanklist" action="/index.php/system/updateBanklist" enctype="multipart/form-data" method="POST">
 <?php
 	$banks=$this->getRows("select * from {$this->prename}bank_list where isDelete=0 order by sort");
 	if($banks) foreach($banks as $var){ ?>

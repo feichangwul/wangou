@@ -14,7 +14,7 @@ $(function(){
 </script>
 </head>
 <body>
-<form name="score_addGoods" action="/admin778899.php/Score/updateGoods" enctype="multipart/form-data" method="POST">
+<form name="score_addGoods" action="/index.php/Score/updateGoods" enctype="multipart/form-data" method="POST">
 <?php
 	if($args[0]){
 		$goodsId=intval($args[0]);

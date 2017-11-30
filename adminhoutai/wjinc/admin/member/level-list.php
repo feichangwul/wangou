@@ -4,7 +4,7 @@
 ?>
 <article class="module width_full">
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/member/setLevel"  method="post" target="ajax" call="setMemberLevel">
+<form action="/index.php/member/setLevel"  method="post" target="ajax" call="setMemberLevel">
 	<header><h3 class="tabs_involved">等级设置</h3></header>
 	<table class="tablesorter" cellspacing="0">
 	<thead>

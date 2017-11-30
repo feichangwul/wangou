@@ -19,7 +19,7 @@ $(function(){
 <input type="hidden" value="<?=$this->user['username']?>" />
 	<header>
 		<h3 class="tabs_involved">综合统计
-			<form action="/admin778899.php/countData/betDateSearch"  target="ajax" dataType="html" call="defaultList" class="submit_link wz">
+			<form action="/index.php/countData/betDateSearch"  target="ajax" dataType="html" call="defaultList" class="submit_link wz">
 				时间：从 <input type="date" class="alt_btn" name="fromTime" /> 到 <input type="date" class="alt_btn" name="toTime"/>&nbsp;&nbsp;
                 <input type="text" class="fqr-in" height="20" value="用户名" name="username"/>&nbsp;&nbsp;
 				<input type="submit" value="查找" class="alt_btn">

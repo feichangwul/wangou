@@ -26,7 +26,7 @@
 <input type="hidden" value="<?=$this->user['username']?>" />
 	<header>
 		<h3 class="tabs_involved"><?=$typeInfo['title']?>开奖数据
-		<form class="submit_link wz" action="/admin778899.php/data/index/<?=$this->type?>" target="ajax" call="defaultSearch" dataType="html">
+		<form class="submit_link wz" action="/index.php/data/index/<?=$this->type?>" target="ajax" call="defaultSearch" dataType="html">
 			期数：<input name="actionNo" type="text"  />
 			<label style="margin-left:30px;"><a class="item" href="data/index/<?=$this->type?><?=$args[0]['id']?>?date=<?=date('Y-m-d', $date-24*3600)?>">前一天</a></label>
 			<label><a class="item" href="data/index/<?=$this->type?><?=$args[0]['id']?>?date=<?=date('Y-m-d', $this->time)?>">今天</a></label>
@@ -172,10 +172,10 @@
 				<td><?=$this->ifs($amountData['fanDianAmount'], '--')?></td>
 				<td>
 				    <?php if($data['data']){ ?>
-					<a href="/admin778899.php/data/updatedata/<?=$this->type?>/<?=$var['actionNo']?>/<?=$dateString.$var['actionTime']?>" target="modal" width="340" title="添加开奖号码" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">修改</a>
-					<a href="/admin778899.php/data/kj" target="ajax" data-type="<?=$typeInfo['id']?>" data-number="<?=$data['number']?>" data-time="<?=$dateString.$var['actionTime']?>" data-data="<?=$data['data']?>" onajax="setKjData" call="setKj" title="重新对没有开奖的投注开奖">开奖</a>
+					<a href="/index.php/data/updatedata/<?=$this->type?>/<?=$var['actionNo']?>/<?=$dateString.$var['actionTime']?>" target="modal" width="340" title="添加开奖号码" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">修改</a>
+					<a href="/index.php/data/kj" target="ajax" data-type="<?=$typeInfo['id']?>" data-number="<?=$data['number']?>" data-time="<?=$dateString.$var['actionTime']?>" data-data="<?=$data['data']?>" onajax="setKjData" call="setKj" title="重新对没有开奖的投注开奖">开奖</a>
 					<?}else{?>
-					<a href="/admin778899.php/data/add/<?=$this->type?>/<?=$var['actionNo']?>/<?=$dateString.$var['actionTime']?>" target="modal" width="340" title="添加开奖号码" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">添加</a>
+					<a href="/index.php/data/add/<?=$this->type?>/<?=$var['actionNo']?>/<?=$dateString.$var['actionTime']?>" target="modal" width="340" title="添加开奖号码" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">添加</a>
 					<?}?>
                     
 				</td>

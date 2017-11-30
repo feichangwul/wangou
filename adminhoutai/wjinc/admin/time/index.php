@@ -30,7 +30,7 @@
 				<td><?=$var['typeName']?></td>
 				<td><?=$var['actionNo']?></td>
                 <td><input type="text" name="actionTime"   value="<?=$var['actionTime']?>"/></td>
-				<td><a href="/admin778899.php/time/updateTime/<?=$var['type']?>/<?=$var['id']?>" target="ajax" method="POST" onajax="sysBeforeUpdateTime" call="sysUpdateTime">保存修改</a></td>
+				<td><a href="/index.php/time/updateTime/<?=$var['type']?>/<?=$var['id']?>" target="ajax" method="POST" onajax="sysBeforeUpdateTime" call="sysUpdateTime">保存修改</a></td>
 			</tr>
 			<?php } ?>
 		</tbody>

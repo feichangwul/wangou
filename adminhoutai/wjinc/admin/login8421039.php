@@ -108,7 +108,7 @@ body {
                           <tr>
                             <td width="13%" height="35" class="login_hui_text"><span class="login_txt">验证码：</span></td>
                             <td height="35" colspan="2" class="login_hui_text"><input class="wenbenkuang"  name="vcode" type="text" maxLength="4" size="10"/>
-							<img align="absmiddle" id="vcode" onClick="this.src='/admin778899.php/user/vcode/'+(new Date()).getTime()" title="看不清楚，换一张图片" src="/admin778899.php/user/vcode/<?=$this->time?>" width="72" height="24"/>
+							<img align="absmiddle" id="vcode" onClick="this.src='/index.php/user/vcode/'+(new Date()).getTime()" title="看不清楚，换一张图片" src="/index.php/user/vcode/<?=$this->time?>" width="72" height="24"/>
                               </td>
                           </tr>
                           <tr>

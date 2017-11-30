@@ -158,7 +158,7 @@ class AdminBase extends Object
             return $user;
         }
 
-        header('location: /admin778899.php/user/login');
+        header('location: /index.php/user/login');
         exit('您没有登录');
     }
 

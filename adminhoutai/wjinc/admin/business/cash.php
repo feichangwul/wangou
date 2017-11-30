@@ -4,7 +4,7 @@ function cashFalse(){
 }
 function cashTrue(){
 	$('.cashFalseSM').css('display','none');
-	$('.cashFalseSM').val()=false;
+	$('.cashFalseSM').val(false);
 }
 </script>
 <?php
@@ -47,9 +47,9 @@ function cashTrue(){
 			<td><?=date('Y-m-d H:i:s', $var['actionTime'])?></td>
 			<td align="center">
 			<?php if($var['state']==0 || $var['state']==2 || $var['state']==4){ ?>
-				<a href="/admin778899.php/business/cashLogDelete/<?=$var['id']?>">删除</a>
+				<a href="/index.php/business/cashLogDelete/<?=$var['id']?>">删除</a>
 			<?php }elseif($var['state']==1){ ?>
-                <a href="/admin778899.php/business/cashActionModal/<?=$var['id']?>" target="modal"  width="420" title="提款处理" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">处理</a>
+                <a href="/index.php/business/cashActionModal/<?=$var['id']?>" target="modal"  width="420" title="提款处理" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">处理</a>
 			<?php }elseif($var['state']>=3){ ?>
 				--
 			<?php } ?>

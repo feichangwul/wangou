@@ -33,7 +33,7 @@ function rechargeLogList(err, data){
 <input type="hidden" value="<?=$this->user['username']?>" />
 	<header>
 		<h3  class="tabs_involved">充值记录
-            <form action="/admin778899.php/business/rechargeLogList" class="submit_link wz" target="ajax" dataType="html" call="rechargeLogList">
+            <form action="/index.php/business/rechargeLogList" class="submit_link wz" target="ajax" dataType="html" call="rechargeLogList">
                 用户：<input type="text" class="alt_btn" style="width:60px;" value="用户名" name="username"/>&nbsp;&nbsp;
                 <input type="text" class="alt_btn" style="width:80px;" value="充值编号" name="rechargeId" />&nbsp;&nbsp;
                 时间：从<input type="date" class="alt_btn" name="fromTime"/> 到 <input type="date" class="alt_btn" name="toTime"/>&nbsp;&nbsp;

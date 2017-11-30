@@ -1,4 +1,4 @@
-<form action="/admin778899.php/member/fabuxiaoxi_action" class="submit_link wz" target="ajax" call="addMember" method="post">
+<form action="/index.php/member/fabuxiaoxi_action" class="submit_link wz" target="ajax" call="addMember" method="post">
 <table cellpadding="0" cellspacing="0" width="320" class="layout">
 	<tr>
 		<th>发布方式：</th>

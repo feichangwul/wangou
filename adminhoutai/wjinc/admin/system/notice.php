@@ -29,7 +29,7 @@
 			<td width="60%" align="left"><?=$var['title']?></td>
 			<td  align="center"><?=$this->iff($var['enable'], '显示', '隐藏')?></td>
             <td><?=date('Y-m-d', $var['addTime'])?></td>
-			<td><a href="system/updateNotice/<?=$var['id']?>" >修改保存</a> | <a href="/admin778899.php/system/deleteNotice/<?=$var['id']?>" target="ajax" call="sysReloadNotice">删除</a></td>
+			<td><a href="system/updateNotice/<?=$var['id']?>" >修改保存</a> | <a href="/index.php/system/deleteNotice/<?=$var['id']?>" target="ajax" call="sysReloadNotice">删除</a></td>
 		</tr>
 	<?php }else{ ?>
 		<tr>

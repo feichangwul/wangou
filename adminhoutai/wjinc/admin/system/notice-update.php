@@ -8,7 +8,7 @@
 <header><h3 class="tabs_involved">修改内容</h3></header>
 <table>
 <tr><td>
-	<form action="/admin778899.php/system/doUpdateNotice/<?=$info['id']?>" method="post" target="ajax" onajax="beforeUpdateNotice" call="doUpdateNotice">
+	<form action="/index.php/system/doUpdateNotice/<?=$info['id']?>" method="post" target="ajax" onajax="beforeUpdateNotice" call="doUpdateNotice">
 		<table class="tablesorter table2" cellspacing="0" width="100%">
 			
 			<tr>

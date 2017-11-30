@@ -147,10 +147,10 @@
 			<td><?=$this->ifs($var['teamwin'], '--')?></td>
 			<td>
                 <?php if(!$noChildren){?>
-                <a target="ajax" dataType="html" call="defaultList" href="<?="/admin778899.php/countData/betDateSearch/?parentId={$var['uid']}&fromTime={$para['fromTime']}&toTime={$para['toTime']}"?>">下级</a>
+                <a target="ajax" dataType="html" call="defaultList" href="<?="/index.php/countData/betDateSearch/?parentId={$var['uid']}&fromTime={$para['fromTime']}&toTime={$para['toTime']}"?>">下级</a>
 				<?php }?>
                 <?php if($var['parentId']){?>
-                  <a target="ajax" dataType="html" call="defaultList" href="<?="/admin778899.php/countData/betDateSearch/?uid={$var['uid']} &fromTime={$para['fromTime']}&toTime={$para['toTime']}"?>">上级</a>
+                  <a target="ajax" dataType="html" call="defaultList" href="<?="/index.php/countData/betDateSearch/?uid={$var['uid']} &fromTime={$para['fromTime']}&toTime={$para['toTime']}"?>">上级</a>
 				<?php }?>
             </td>
 		</tr>

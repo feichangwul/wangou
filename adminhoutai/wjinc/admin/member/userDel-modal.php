@@ -16,7 +16,7 @@ if($son['teamNum']-1>0){?>
 	 团队还有成员<?=$son['teamNum']?>人，团队资金<?=$this->ifs($son['teamCoin'],'0.00')?>元,团队冻结<?=$this->ifs($son['teamFcoin'],'0.00')?>元，请先删除团队成员。
 </form>
 <?php }else{?>
-<form action="/admin778899.php/Member/deleteed/<?=$uid?>" target="ajax" method="post" call="userDataSubmitCode" dataType="html">
+<form action="/index.php/Member/deleteed/<?=$uid?>" target="ajax" method="post" call="userDataSubmitCode" dataType="html">
 	<input type="hidden" name="uid" value="<?=$uid?>" />
 	<input type="hidden" name="teamCoin" value="<?=$son['teamCoin']?>" />
 	<input type="hidden" name="teamFcoin" value="<?=$son['teamFcoin']?>" />

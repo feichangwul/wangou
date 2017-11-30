@@ -95,7 +95,7 @@
 <input type="hidden" value="<?=$this->user['username']?>" />
 	<header>
 		<h3 class="tabs_involved">帐变明细
-		<form action="/admin778899.php/business/coinLog" class="submit_link wz" target="ajax" call="defaultSearch" dataType="html">
+		<form action="/index.php/business/coinLog" class="submit_link wz" target="ajax" call="defaultSearch" dataType="html">
 			会员：<input type="text" class="alt_btn" name="username" style="width:60px;"/>&nbsp;&nbsp;
 			类型：<select style="width:100px" name="liqType">
 					<option value="">所有帐变类型</option>
@@ -167,20 +167,20 @@
 			<td><?=$var['username']?></td>
 			<td><?=$var['info']?></td>
             <?php if($var['extfield0'] && in_array($var['liqType'], array(2,3,4,5,6,7,10,11,100,101,102,103,104,105,108))){ ?>
-                <td><a target="modal" button="关闭:defaultCloseModal" width="510" title="投注信息" href="/admin778899.php/business/betInfo/<?=$var['extfield0']?>"><?=$this->ifs($var['extfield0'], '--')?></a>
+                <td><a target="modal" button="关闭:defaultCloseModal" width="510" title="投注信息" href="/index.php/business/betInfo/<?=$var['extfield0']?>"><?=$this->ifs($var['extfield0'], '--')?></a>
                 </td>
                 <td><?=$this->iff($var['type'], $this->types[$var['type']]['title'], '--')?></td>
                 <td><?=$this->iff($bet['playedId'], $this->playeds[$bet['playedId']]['name'], '--')?></td>
                 <td><?=$this->ifs($bet['actionNo'], '--')?></td>
                 <td><?=$this->iff($bet['mode'], $mname[$bet['mode']], '--')?></td>
 			<?php }elseif(in_array($var['liqType'], array(1,9,52))){?>
-                <td><a href="/admin778899.php/business/rechargeInfo/<?=$var['extfield0']?>" width="500" title="充值信息" button="关闭:defaultCloseModal" target="modal"><?=$var['extfield1']?></a></td>
+                <td><a href="/index.php/business/rechargeInfo/<?=$var['extfield0']?>" width="500" title="充值信息" button="关闭:defaultCloseModal" target="modal"><?=$var['extfield1']?></a></td>
                 <td>--</td>
                 <td>--</td>
                 <td>--</td>
                 <td>--</td>
 			<?php }elseif(in_array($var['liqType'], array(8,106,107))){?>
-                <td><a href="/admin778899.php/business/cashInfo/<?=$var['extfield0']?>" width="500" title="提现信息" button="关闭:defaultCloseModal" target="modal"><?=$var['extfield0']?></a></td>
+                <td><a href="/index.php/business/cashInfo/<?=$var['extfield0']?>" width="500" title="提现信息" button="关闭:defaultCloseModal" target="modal"><?=$var['extfield0']?></a></td>
                 <td>--</td>
                 <td>--</td>
                 <td>--</td>

@@ -1,6 +1,6 @@
 <div class="manager-edit">
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/manage/addManager" target="ajax" method="post" call="manageAddManager" onajax="manageBeforeAddManager">
+<form action="/index.php/manage/addManager" target="ajax" method="post" call="manageAddManager" onajax="manageBeforeAddManager">
 	<table class="tablesorter left" cellspacing="0"> 
 	<tbody> 
 		<tr> 

@@ -3,7 +3,7 @@
 <header><h3 class="tabs_involved">添加公告</h3></header>
 <table>
 <tr><td>
-<form action="/admin778899.php/system/doAddNotice" method="post" target="ajax" call="sysReloadNotice">
+<form action="/index.php/system/doAddNotice" method="post" target="ajax" call="sysReloadNotice">
 		<table class="tablesorter table2" cellspacing="0" width="100%">
 			
 			<tr>

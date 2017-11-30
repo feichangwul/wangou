@@ -28,7 +28,7 @@
 			<tr>
 				<th colspan="9" style="text-align:left;">
                 	
-					<span style="float:right; margin-right:20px"><a href="/admin778899.php/system/switchPlayedGroupStatus/<?=$group['id']?>" target="ajax" call="reloadPlayed"><?=$this->iff($group['enable'],'关闭','开启')?></a></span>
+					<span style="float:right; margin-right:20px"><a href="/index.php/system/switchPlayedGroupStatus/<?=$group['id']?>" target="ajax" call="reloadPlayed"><?=$this->iff($group['enable'],'关闭','开启')?></a></span>
 					<?=$group['groupName']?>&nbsp;&nbsp;&nbsp;&nbsp;
 					<span class="spn1">[状态：<span class="state1"><?=$this->iff($group['enable'],'开启','关闭')?></span>]</span>
                     
@@ -46,7 +46,7 @@
 				<td width="13%">最低消费：<input type="text" class="textWid1" name="minCharge" value="<?=$played['minCharge']?>">元</td>
                 <td width="12%">排序：<input type="text" class="textWid1" name="sort" value="<?=$played['sort']?>"></td>
 				<td width="5%"><span class="state2"><?=$this->iff($played['enable'], '开启', '关闭')?></span></td>
-				<td><a href="/admin778899.php/system/switchPlayedStatus/<?=$played['id']?>" target="ajax" call="reloadPlayed"><?=$this->iff($played['enable'], '关闭', '开启')?></a> | <a href="/admin778899.php/system/updatePlayed/<?=$played['id']?>" target="ajax" method="post" onajax="sysBeforeUpdatePlayed" call="reloadPlayed">保存修改</a> | <a href="/admin778899.php/system/betPlayedInfoUpdate/<?=$played['id']?>" button="修改:dataAddCode|取消:defaultCloseModal" title="修改信息" width="510" target="modal" modal="true">修改信息</a></td>
+				<td><a href="/index.php/system/switchPlayedStatus/<?=$played['id']?>" target="ajax" call="reloadPlayed"><?=$this->iff($played['enable'], '关闭', '开启')?></a> | <a href="/index.php/system/updatePlayed/<?=$played['id']?>" target="ajax" method="post" onajax="sysBeforeUpdatePlayed" call="reloadPlayed">保存修改</a> | <a href="/index.php/system/betPlayedInfoUpdate/<?=$played['id']?>" button="修改:dataAddCode|取消:defaultCloseModal" title="修改信息" width="510" target="modal" modal="true">修改信息</a></td>
 			</tr>
 		<?php }else{ ?>
 			<tr>

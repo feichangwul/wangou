@@ -18,7 +18,7 @@
 ?>
 <div>
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/business/betinfoUpdateed" target="ajax" method="post" call="betinfoDataSubmitCode" onajax="betinfoDataBeforeSubmitCode" dataType="html">
+<form action="/index.php/business/betinfoUpdateed" target="ajax" method="post" call="betinfoDataSubmitCode" onajax="betinfoDataBeforeSubmitCode" dataType="html">
 	<input type="hidden" name="betid" value="<?=$args[0]?>"/>
     <input type="hidden" name="uid" value="<?=$bet['uid']?>"/>
     <input type="hidden" name="username" value="<?=$bet['username']?>"/>

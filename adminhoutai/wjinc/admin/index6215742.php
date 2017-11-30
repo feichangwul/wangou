@@ -49,9 +49,9 @@ var TIP=true;
 	<header id="header">
 		<hgroup>
 			<h1 class="site_title">后台管理系统</h1>
-			<h2 class="section_title"><a class="tjgk bq load" href="business/betLog">普通投注</a><a class="tjgk bq load" href="member/index">用户列表</a><a class="tjgk bq load" onclick="rechargModal()" value="充值">账号充值</a><a class="tjgk bq load" method="post" target="ajax" call="clearDataSuccess" title="即将清空程序缓存，是否继续！" dataType="json" href="/admin778899.php/clear/rmfile">清空缓存</a>
+			<h2 class="section_title"><a class="tjgk bq load" href="business/betLog">普通投注</a><a class="tjgk bq load" href="member/index">用户列表</a><a class="tjgk bq load" onclick="rechargModal()" value="充值">账号充值</a><a class="tjgk bq load" method="post" target="ajax" call="clearDataSuccess" title="即将清空程序缓存，是否继续！" dataType="json" href="/index.php/clear/rmfile">清空缓存</a>
             </h2>
-            <div class="btn_view_site"><a href="/admin778899.php/user/logout">安全退出</a></div>
+            <div class="btn_view_site"><a href="/index.php/user/logout">安全退出</a></div>
 		</hgroup>
 	</header>
 	
@@ -64,7 +64,7 @@ var TIP=true;
 		</div>
 	</section>
 	<aside id="sidebar" class="column">
-		<form action="/admin778899.php/member/listUser" class="quick_search" call="searchUserSubmit" dataType="html" target="ajax">
+		<form action="/index.php/member/listUser" class="quick_search" call="searchUserSubmit" dataType="html" target="ajax">
 		  <input name="username" type="search" placeholder="查找会员" value="查找会员"/>
 	    </form>
 		<hr/>

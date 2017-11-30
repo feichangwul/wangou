@@ -41,7 +41,7 @@
 ?>
 
 <div class="manager-edit">
-<form action="/admin778899.php/Bonus/shareBonusSingle/<?=$args[0]?>" target="ajax" method="post" call="shareBonusHandle" onajax="bonusBeforeShare" dataType="html">
+<form action="/index.php/Bonus/shareBonusSingle/<?=$args[0]?>" target="ajax" method="post" call="shareBonusHandle" onajax="bonusBeforeShare" dataType="html">
 <table class="tablesorter left" cellspacing="0"> 
 	<tbody> 
 		<tr> 

@@ -5,7 +5,7 @@
 ?>
 <div>
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/business/rechargeHandle"  target="ajax" method="post" call="rechargeSubmitCode" onajax="rechargeBeforeSubmit" dataType="html">
+<form action="/index.php/business/rechargeHandle"  target="ajax" method="post" call="rechargeSubmitCode" onajax="rechargeBeforeSubmit" dataType="html">
 	<input type="hidden" name="id" value="<?=$args[0]?>"/>
 <table cellpadding="0" cellspacing="0" width="320" class="layout">
 	<tr>

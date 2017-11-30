@@ -68,8 +68,8 @@
 			<td><?=$var['price']?></td> 
 			<td><span class="<?=$cssspan2?>"> <?=date("Y-m-d H:i",$var['startTime'])?> — <?=date("Y-m-d H:i",$var['stopTime'])?></span></td> 
 			<td><span class="<?=$cssspan3?>"><?=$state?></span></td> 
-			<td><a href="/admin778899.php/Score/goodsOnoff/<?=$var['id'].'/'.$var['enable']?>" target="ajax" call="goodsHandle" dataType="json"><?=$statebtn?></a> | <a href="#" onclick="scoreEditGoods(<?=$var['id']?>)">修改</a> | 
-            <a href="/admin778899.php/Score/goodsDel/<?=$var['id']?>" target="ajax" call="goodsHandle" dataType="json">删</a>
+			<td><a href="/index.php/Score/goodsOnoff/<?=$var['id'].'/'.$var['enable']?>" target="ajax" call="goodsHandle" dataType="json"><?=$statebtn?></a> | <a href="#" onclick="scoreEditGoods(<?=$var['id']?>)">修改</a> | 
+            <a href="/index.php/Score/goodsDel/<?=$var['id']?>" target="ajax" call="goodsHandle" dataType="json">删</a>
             </td>
 		</tr> 
 	<?php }else{ ?>

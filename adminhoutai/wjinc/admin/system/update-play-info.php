@@ -6,7 +6,7 @@
 ?>
 <div>
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/system/playedInfoUpdateed" target="ajax" method="post" call="playedInfoDataSubmitCode" onajax="playedInfoDataBeforeSubmitCode" dataType="html">
+<form action="/index.php/system/playedInfoUpdateed" target="ajax" method="post" call="playedInfoDataSubmitCode" onajax="playedInfoDataBeforeSubmitCode" dataType="html">
 	<input type="hidden" name="playedid" value="<?=$args[0]?>"/>
    
 <div class="bet-info popupModal">

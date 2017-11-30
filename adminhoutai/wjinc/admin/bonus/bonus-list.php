@@ -69,7 +69,7 @@
 				echo sprintf("%.2f", $bonusAmount);  
 			?></td>
 			<td>
-				<a href="/admin778899.php/Bonus/shareBonusModal/<?=$var['uid']?>" target="ajax" call="shareBonusModal">发放分红</a>
+				<a href="/index.php/Bonus/shareBonusModal/<?=$var['uid']?>" target="ajax" call="shareBonusModal">发放分红</a>
             </td>
 		</tr> 
 	<?php }else{ ?>

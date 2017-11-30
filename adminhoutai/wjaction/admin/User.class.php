@@ -159,7 +159,7 @@ class User extends Object{
 		}
 		$_SESSION['admin-session-name']=serialize($user);
 		
-		//header('location:/admin778899.php');
+		//header('location:/index.php');
 		return $user;
 	}
 	

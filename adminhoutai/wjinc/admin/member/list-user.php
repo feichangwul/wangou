@@ -103,7 +103,7 @@
         <td><?=$this->iff($login['loginTime'],date('m-d H:i', $login['loginTime']),'--')?><?//=$var['updateTime']?></td> 
 		<td><?=long2ip($var['regIP'])?></td>
 		<td style="color:#FF0000"><?=$var['info']?></td>
-        <td><a href="/admin778899.php/Member/userAmount/<?=$var['uid']?>" target="modal"  width="420" title="用户统计" modal="true">统计</a> | <a href="business/coinLog?username=<?=$var['username']?>">帐变</a> | <a href="/admin778899.php/Member/userUpdate/<?=$var['uid']?>" target="modal"  width="420" title="编辑用户" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">编辑</a> | <a href="Member/index?type=2&uid=<?=$var['uid']?>" call="">下级</a> | <a href="/admin778899.php/Member/delete/<?=$var['uid']?>" target="modal"  width="320" title="删除用户" modal="true" button="确定:dataAddCode">删</a>  |  <a method="post" target="ajax" call="TSuccess" title="是否踢该会员下线?" dataType="json" href="/admin778899.php/System/T/<?=$var['uid']?>">踢下线</a></td> 
+        <td><a href="/index.php/Member/userAmount/<?=$var['uid']?>" target="modal"  width="420" title="用户统计" modal="true">统计</a> | <a href="business/coinLog?username=<?=$var['username']?>">帐变</a> | <a href="/index.php/Member/userUpdate/<?=$var['uid']?>" target="modal"  width="420" title="编辑用户" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">编辑</a> | <a href="Member/index?type=2&uid=<?=$var['uid']?>" call="">下级</a> | <a href="/index.php/Member/delete/<?=$var['uid']?>" target="modal"  width="320" title="删除用户" modal="true" button="确定:dataAddCode">删</a>  |  <a method="post" target="ajax" call="TSuccess" title="是否踢该会员下线?" dataType="json" href="/index.php/System/T/<?=$var['uid']?>">踢下线</a></td> 
     </tr>
    <?php }else{?>
     <tr> 
@@ -118,7 +118,7 @@
         <td class="spn9">已删除</td> 
         <td class="spn9"><?=$var['updateTime']?></td> 
 		<td style="color:#FF0000"><?=$var['info']?></td>
-        <td class="spn9"><a href="/admin778899.php/Member/userAmount/<?=$var['uid']?>" target="modal"  width="420" title="用户统计" modal="true">统计</a> | <a href="business/coinLog?username=<?=$var['username']?>">帐变</a> | <a href="Member/index?type=2&uid=<?=$var['uid']?>" call="">下级</a></td> 
+        <td class="spn9"><a href="/index.php/Member/userAmount/<?=$var['uid']?>" target="modal"  width="420" title="用户统计" modal="true">统计</a> | <a href="business/coinLog?username=<?=$var['username']?>">帐变</a> | <a href="Member/index?type=2&uid=<?=$var['uid']?>" call="">下级</a></td> 
     </tr>
 	<?php }} ?>
 </tbody> 

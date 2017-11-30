@@ -16,7 +16,7 @@
 
 <div>
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/member/userUpdateed" target="ajax" method="post" call="userDataSubmitCode" onajax="userDataBeforeSubmitCode" dataType="html">
+<form action="/index.php/member/userUpdateed" target="ajax" method="post" call="userDataSubmitCode" onajax="userDataBeforeSubmitCode" dataType="html">
 	<input type="hidden" name="type" value="<?=$userData['type']?>"/>
 	<input type="hidden" name="uid" value="<?=$args[0]?>"/>
       <!--uid  isDelete  enable  parentId 会员从属关系 parents 上级系列 admin  username  coinPassword  type 是否代理：0会员，1代理 subCount 人数配额 sex  nickname  name 用户真实姓名 regIP  regTime  updateTime  province  city  address  password  qq  msn  mobile  email  idCard 身份证号码 grade 等级 score 积分 coin 个人财产 fcoin 冻结资产 fanDian 用户设置的返点数 fanDianBdw 不定位返点 safepwd 交易密码，请区别于登录密码 safeEmail 密保邮箱，与邮箱分开 -->

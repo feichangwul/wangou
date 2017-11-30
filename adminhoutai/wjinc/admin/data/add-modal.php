@@ -21,7 +21,7 @@ if($para['type']==1){
 ?>
 <div>
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/data/added" target="ajax" method="post" call="dataSubmitCode" onajax="dataBeforeSubmitCode" dataType="html">
+<form action="/index.php/data/added" target="ajax" method="post" call="dataSubmitCode" onajax="dataBeforeSubmitCode" dataType="html">
 	<input type="hidden" name="type" value="<?=$para['type']?>"/>
 	<table class="popupModal">
 		<tr>

@@ -3,7 +3,7 @@
 <header><h3 class="tabs_involved">新增会员</h3></header>
 <table>
 <tr><td width="360">
-	<form action="/admin778899.php/member/added" method="post" target="ajax" onajax="beforeAddMember" call="addMember">
+	<form action="/index.php/member/added" method="post" target="ajax" onajax="beforeAddMember" call="addMember">
 		<table class="tablesorter table2" cellspacing="0" width="100%">
 			<tr>
 				<td><span class="aq-txt">账号类型：</span></td>

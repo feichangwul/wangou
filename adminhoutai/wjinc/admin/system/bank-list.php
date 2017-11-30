@@ -28,7 +28,7 @@
 				<td><?=$var['username']?></td>
 				<td><?=$var['account']?></td>
 				<td><?=$this->iff($var['enable'], '开', '关')?></td>
-				<td><a href="/admin778899.php/system/switchBankStatus2/<?=$var['id']?>" target="ajax" call="sysReloadBank"><?=$this->iff($var['enable'], '关闭', '开启')?></a> | <a href="#" onclick="sysEditBank(<?=$var['id']?>)">修改</a> | <a href="/admin778899.php/system/deleteBank2/<?=$var['id']?>" target="ajax" call="sysReloadBank">删除</a></td>
+				<td><a href="/index.php/system/switchBankStatus2/<?=$var['id']?>" target="ajax" call="sysReloadBank"><?=$this->iff($var['enable'], '关闭', '开启')?></a> | <a href="#" onclick="sysEditBank(<?=$var['id']?>)">修改</a> | <a href="/index.php/system/deleteBank2/<?=$var['id']?>" target="ajax" call="sysReloadBank">删除</a></td>
 			</tr>
 		<?php }else{ ?>
 			<tr>

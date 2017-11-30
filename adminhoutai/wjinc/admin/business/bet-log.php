@@ -60,7 +60,7 @@
 	<header>
 		<h3 class="tabs_involved">普通投注
 			<div class="submit_link wz">
-			<form action="/admin778899.php/business/betLog" target="ajax" call="defaultSearch" dataType="html">
+			<form action="/index.php/business/betLog" target="ajax" call="defaultSearch" dataType="html">
 				期号<input type="text" class="alt_btn" name="actionNo" style="width:90px;" value="<?=$_REQUEST['actionNo']?>"/>
 				单号<input type="text" class="alt_btn" name="id" style="width:90px;"/>&nbsp;&nbsp;
 				会员<input type="text" class="alt_btn" name="username" style="width:90px;"/>&nbsp;&nbsp;
@@ -101,7 +101,7 @@
 		<tbody id="nav01">
 		<?php if($data['data']) foreach($data['data'] as $var){ ?>
 			<tr data-code='<?=json_encode($var)?>'>
-				<td><a href="/admin778899.php/business/betInfo/<?=$var['id']?>" button="确定:defaultCloseModal" title="投注信息" width="510" target="modal"><?=$var['wjorderId']?></a></td>
+				<td><a href="/index.php/business/betInfo/<?=$var['id']?>" button="确定:defaultCloseModal" title="投注信息" width="510" target="modal"><?=$var['wjorderId']?></a></td>
 				<td><?=$var['username']?></td>
 				<td><?=date('m-d H:i', $var['actionTime'])?></td>
 				<td><?=$this->ifs($this->types[$var['type']]['shortName'],$this->types[$var['type']]['title'])?></td>
@@ -126,7 +126,7 @@
 				?>
                 </td>
 				<td><?=$var['fanDianAmount']?></td>
-				<td><?php if($var['lotteryNo'] || $var['isDelete']==1){ ?>--<?php }else{ ?><a href="/admin778899.php/business/betInfoUpdate/<?=$var['id']?>" button="修改:dataAddCode|取消:defaultCloseModal" title="修改投注信息" width="510" target="modal" modal="true">修改</a></td><?php } ?>
+				<td><?php if($var['lotteryNo'] || $var['isDelete']==1){ ?>--<?php }else{ ?><a href="/index.php/business/betInfoUpdate/<?=$var['id']?>" button="修改:dataAddCode|取消:defaultCloseModal" title="修改投注信息" width="510" target="modal" modal="true">修改</a></td><?php } ?>
 			</tr>
 		<?php }else{ ?>
     <tr>

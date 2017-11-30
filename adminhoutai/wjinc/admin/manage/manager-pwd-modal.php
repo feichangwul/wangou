@@ -1,6 +1,6 @@
 <div class="manager-edit">
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/manage/changeManagerPwd/<?=$args[0]?>" target="ajax" method="post" call="manageChangePwd" onajax="manageBeforeChangePwd">
+<form action="/index.php/manage/changeManagerPwd/<?=$args[0]?>" target="ajax" method="post" call="manageChangePwd" onajax="manageBeforeChangePwd">
 <table class="tablesorter left" cellspacing="0"> 
 	<tbody> 
 		<tr> 

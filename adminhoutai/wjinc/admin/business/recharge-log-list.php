@@ -82,8 +82,8 @@
         <td><?=date('Y-m-d H:i:s', $var['actionTime'])?></td>
         <td>
             <?php if(!$var['state']){ ?>
-            <a href="/admin778899.php/business/rechargeActionModal/<?=$var['id']?>" target="modal"  width="420" title="编辑用户" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">到帐处理</a>
-            <a href="/admin778899.php/business/rechargeDelete/<?=$var['id']?>" target="ajax" dataType="json" call="defaultAjaxLink">删除</a>
+            <a href="/index.php/business/rechargeActionModal/<?=$var['id']?>" target="modal"  width="420" title="编辑用户" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">到帐处理</a>
+            <a href="/index.php/business/rechargeDelete/<?=$var['id']?>" target="ajax" dataType="json" call="defaultAjaxLink">删除</a>
             <?php }else{ ?>
             <a>--</a>
             <?php }?>

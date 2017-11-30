@@ -20,7 +20,7 @@
 <input type="hidden" value="<?=$this->user['coin']?>" />
     <header>
     	<h3 class="tabs_involved">银行信息
-            <form action="/admin778899.php/member/bank" target="ajax" dataType="html" class="submit_link wz" call="defaultSearch" >
+            <form action="/index.php/member/bank" target="ajax" dataType="html" class="submit_link wz" call="defaultSearch" >
                 会员名：<input type="text" class="alt_btn"  name="username" placeholder="会员名"/>&nbsp;&nbsp;
                <input type="submit" value="查找" class="alt_btn">
             </form>
@@ -47,7 +47,7 @@
 			<td><?=$var['account']?></td>
 			<td><?=$var['username']?></td>
 			<td><?=$var['countname']?></td>
-			<td><a href="#" onclick="memberEditBank(<?=$var['id']?>)">修改</a> | <a href="/admin778899.php/system/deleteBank/<?=$var['id']?>" target="ajax" call="memberReloadBank">删除</a></td>
+			<td><a href="#" onclick="memberEditBank(<?=$var['id']?>)">修改</a> | <a href="/index.php/system/deleteBank/<?=$var['id']?>" target="ajax" call="memberReloadBank">删除</a></td>
 		</tr>
 	<?php } ?>
 

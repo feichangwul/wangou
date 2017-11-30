@@ -1,6 +1,6 @@
 <article class="module width_full">
 <input type="hidden" value="<?=$this->user['username']?>" />
-	<form name="database_install" action="/admin778899.php/database/dataBackup" method="post" target="ajax" call="dataBackup" onajax="dataBackupBefor">
+	<form name="database_install" action="/index.php/database/dataBackup" method="post" target="ajax" call="dataBackup" onajax="dataBackupBefor">
     <header>
 		<h3 class="tabs_involved">数据库备份
 			<div class="submit_link wz">
@@ -41,9 +41,9 @@ foreach ($FileArr as $i => $n){
                 } else {
                         $FileSize = '<font color="#FF0000">' . number_format($FileSize/1024,2) . '</font> MB';
                 }
-				$sAS .= "<a href=\"/admin778899.php/database/dataBackup\" target=\"ajax\" method=\"post\" onajax=\"sysBeforeActionBackup\"  call=\"sysReloadBackup\" action=\"Dow\" file=\"$n\" title=\"确定下载当前备份吗？\">下载</a> | \n";
-				//$sAS .= "<a href=\"/admin778899.php/database/dataBackup\" target=\"ajax\" method=\"post\" onajax=\"sysBeforeActionBackup\"  call=\"sysReloadBackup\" action=\"RL\" file=\"$n\" title=\"确定将数据库还原到当前备份吗？\">还原</a> | \n";
-				$sAS .= "<a href=\"/admin778899.php/database/dataBackup\" target=\"ajax\" method=\"post\" onajax=\"sysBeforeActionBackup\" call=\"sysReloadBackup\" action=\"Del\" file=\"$n\" title=\"确定删除当前备份吗？\">删除</a>\n";
+				$sAS .= "<a href=\"/index.php/database/dataBackup\" target=\"ajax\" method=\"post\" onajax=\"sysBeforeActionBackup\"  call=\"sysReloadBackup\" action=\"Dow\" file=\"$n\" title=\"确定下载当前备份吗？\">下载</a> | \n";
+				//$sAS .= "<a href=\"/index.php/database/dataBackup\" target=\"ajax\" method=\"post\" onajax=\"sysBeforeActionBackup\"  call=\"sysReloadBackup\" action=\"RL\" file=\"$n\" title=\"确定将数据库还原到当前备份吗？\">还原</a> | \n";
+				$sAS .= "<a href=\"/index.php/database/dataBackup\" target=\"ajax\" method=\"post\" onajax=\"sysBeforeActionBackup\" call=\"sysReloadBackup\" action=\"Del\" file=\"$n\" title=\"确定删除当前备份吗？\">删除</a>\n";
 
                 echo "<tr>
                 <td>$n</td>

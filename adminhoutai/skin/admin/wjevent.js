@@ -6,7 +6,7 @@ $(function(){
 	//{{{系统提示
 	if(typeof(TIP)!='undefined' && TIP){
 	setInterval(function(){
-		$.getJSON('/admin778899.php/business/getTip', function(tip){
+		$.getJSON('/index.php/business/getTip', function(tip){
 			if(tip){
 				// 只处理正确返回的数据
 				playVoice('/skin/sound/cash.wav', 'cash-voice');
@@ -33,7 +33,7 @@ $(function(){
 	//}}}
 	if(typeof(TIP)!='undefined' && TIP){
 	setInterval(function(){
-		$.getJSON('/admin778899.php/business/getRecharge', function(tip){
+		$.getJSON('/index.php/business/getRecharge', function(tip){
 			if(tip){
 				// 只处理正确返回的数据
 				//playVoice('/skin/sound/backcash.wav', 'cash-voice');

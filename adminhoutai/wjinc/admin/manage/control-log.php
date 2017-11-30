@@ -29,7 +29,7 @@ function adminLogList(err, data){
 <input type="hidden" value="<?=$this->user['username']?>" />
 	<header>
 		<h3 class="tabs_involved">帐变明细
-		<form action="/admin778899.php/manage/controlLogList" class="submit_link wz" target="ajax" dataType="html" onajax="adminLogBeforeSubmit" call="adminLogList">
+		<form action="/index.php/manage/controlLogList" class="submit_link wz" target="ajax" dataType="html" onajax="adminLogBeforeSubmit" call="adminLogList">
             管理员：<input type="text" class="alt_btn" style="width:100px;" value="管理员" name="username"/>&nbsp;&nbsp;
 			IP：<input type="text" class="alt_btn" style="width:100px;" value="" name="ip"/>&nbsp;&nbsp;
 			类型：<select style="width:100px" name="type">

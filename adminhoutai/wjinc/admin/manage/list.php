@@ -39,11 +39,11 @@
                 <?php
 				if($var['username']=='admin'){
 				?>
-				<td><a href="/admin778899.php/manage/pwdManagerModal/<?=$var['uid']?>" target="ajax" call="manageChangePwdModal">修改密码</a></td>
+				<td><a href="/index.php/manage/pwdManagerModal/<?=$var['uid']?>" target="ajax" call="manageChangePwdModal">修改密码</a></td>
                  <?php
 				}else{
 				?>
-                <td><a href="/admin778899.php/manage/pwdManagerModal/<?=$var['uid']?>" target="ajax" call="manageChangePwdModal">修改密码</a> | <a href="/admin778899.php/manage/deleteManager/<?=$var['uid']?>" target="ajax" call="manageDeleteManager" dataType="json">删除</a></td>
+                <td><a href="/index.php/manage/pwdManagerModal/<?=$var['uid']?>" target="ajax" call="manageChangePwdModal">修改密码</a> | <a href="/index.php/manage/deleteManager/<?=$var['uid']?>" target="ajax" call="manageDeleteManager" dataType="json">删除</a></td>
                  <?php
 				}
 				?>
@@ -57,7 +57,7 @@
 				<td><?=$this->ifs(long2ip($login['loginIP']),'--')?></td>
 				<td>已被删除</td>
 				<td><?=$this->iff($login['loginTime'],date('Y-m-d H:i:s', $login['loginTime']),'--')?></td>
-                <td><a href="/admin778899.php/manage/backNormalManager/<?=$var['uid']?>" target="ajax" call="manageBackNormalManager" dataType="json">还原</a> | <a href="/admin778899.php/manage/clearManager/<?=$var['uid']?>" target="ajax" onajax="beforeClearManager" call="manageClearManager" dataType="json">清除</a></td>
+                <td><a href="/index.php/manage/backNormalManager/<?=$var['uid']?>" target="ajax" call="manageBackNormalManager" dataType="json">还原</a> | <a href="/index.php/manage/clearManager/<?=$var['uid']?>" target="ajax" onajax="beforeClearManager" call="manageClearManager" dataType="json">清除</a></td>
                 
 			</tr>
 		<?php			}

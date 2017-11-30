@@ -26,7 +26,7 @@
 <article class="module width_full">
     <header>
 		<h3 class="tabs_involved">分红记录列表
-		<form action="/admin778899.php/bonus/bonusLog" target="ajax" datatype="html" call="defaultSearch" class="submit_link wz">
+		<form action="/index.php/bonus/bonusLog" target="ajax" datatype="html" call="defaultSearch" class="submit_link wz">
                 用户名：<input type="text" class="alt_btn" style="width:60px;" name="username">&nbsp;&nbsp;
                 时间：从 <input type="date" class="alt_btn" name="fromTime"> 到 <input type="date" class="alt_btn hasDatepicker" name="toTime">&nbsp;&nbsp;
                 <input type="submit" value="查找" class="alt_btn">
@@ -66,9 +66,9 @@
         </td>
         <td align="center">
         <?php if($var['bonusStatus']==1){ ?>
-            	<a href="/admin778899.php/bonus/bonusLogDelete/<?=$var['id']?>" target="ajax" call="bonusLogDelete" dataType="html">删除</a>
+            	<a href="/index.php/bonus/bonusLogDelete/<?=$var['id']?>" target="ajax" call="bonusLogDelete" dataType="html">删除</a>
         <?php }else{ ?>
-				<a href="/admin778899.php/bonus/bonusLogActionModal/<?=$var['id']?>" target="ajax" call="bonusLogModal">处理</a>
+				<a href="/index.php/bonus/bonusLogActionModal/<?=$var['id']?>" target="ajax" call="bonusLogModal">处理</a>
         <?php } ?>
         </td>
     </tr>

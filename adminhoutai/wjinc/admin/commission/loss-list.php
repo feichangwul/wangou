@@ -21,7 +21,7 @@
 <article class="module width_full">
     <header>
 		<h3 class="tabs_involved">亏损佣金发放列表
-			<form action="/admin778899.php/Commission/updateCommStatus" class="submit_link wz" target="ajax" datatype="html" call="lossCommHandle">
+			<form action="/index.php/Commission/updateCommStatus" class="submit_link wz" target="ajax" datatype="html" call="lossCommHandle">
               	<input type="hidden" name="commStatusName" value="lossCommStatus" />
 				<input type="submit" class="alt_btn" value="更新发放状态" />
             </form>
@@ -55,7 +55,7 @@
 			<td><?php if($var['type']){echo'代理';}else{echo '会员';}?></td>
 			<td><?=abs($loss)?></td>
 			<td>
-				<a href="/admin778899.php/Commission/lossComSingle/<?=$var['uid']?>" target="ajax" call="lossCommHandle" dataType="html">发放佣金</a>
+				<a href="/index.php/Commission/lossComSingle/<?=$var['uid']?>" target="ajax" call="lossCommHandle" dataType="html">发放佣金</a>
             </td>
 		</tr> 
 		<?php } } }else{ ?>

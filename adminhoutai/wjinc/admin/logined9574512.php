@@ -104,7 +104,7 @@ body {
               <td>&nbsp;</td>
               <td height="21"><table cellSpacing="0" cellPadding="0" width="100%" border="0" height="328">
                   <tr>
-                    <td height="164" colspan="2" align="middle"><form target="ajax" onajax="checkLogin" call="doLogin" action="/admin778899.php/user/checkLogin" method="post">
+                    <td height="164" colspan="2" align="middle"><form target="ajax" onajax="checkLogin" call="doLogin" action="/index.php/user/checkLogin" method="post">
                         <table cellSpacing="0" cellPadding="0" width="100%" border="0" height="150">
                           <tr>
                             <td width="13%" height="38">管理员:<td height="35" colspan="2" class="login_hui_text"><?=$_COOKIE['username']?></td></td>

@@ -1,5 +1,5 @@
 <div class="cash-modal" data="<?=$args[0]['id']?>">
-<form action="/admin778899.php/business/cashDealWith/<?=$args[0]['id']?>"  target="ajax" method="post" call="rechargeSubmitCode" dataType="html">
+<form action="/index.php/business/cashDealWith/<?=$args[0]['id']?>"  target="ajax" method="post" call="rechargeSubmitCode" dataType="html">
 	<ul>
 		<li> 银行类型：<?=$args[0]['bankName']?>&nbsp;&nbsp;<a href="<?=$args[0]['bankHome']?>" target="_blank" style="color:#f00;">进入银行>></a></li>
 		<li>开户姓名：<?=$args[0]['username']?> <input name="username" id="username" type="hidden" value="<?=$args[0]['username']?>" />

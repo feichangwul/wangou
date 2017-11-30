@@ -14,7 +14,7 @@
 </div><!-- end of .tab_container -->
 <footer>
     <div class="submit_link">
-        <a onclick="this.href='/admin778899.php/System/serviceAddNew/'+$(':input[name=\'serviceName\']').val()"  href="#" target="ajax" call= "serviceAddNew" dataType="html"><input type="submit" value="添加" class="alt_btn"/></a>
+        <a onclick="this.href='/index.php/System/serviceAddNew/'+$(':input[name=\'serviceName\']').val()"  href="#" target="ajax" call= "serviceAddNew" dataType="html"><input type="submit" value="添加" class="alt_btn"/></a>
     </div>
 </footer>
 </form>

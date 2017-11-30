@@ -112,7 +112,7 @@ function load(url, options){
 
 	options=options||{};
 	if(typeof url =='string') options.url=url;
-	options.url='/admin778899.php/'+options.url||'';
+	options.url='/index.php/'+options.url||'';
 	options.title=options.title||'';
 
 	if(typeof options.beforeLoad=='function'){
@@ -173,7 +173,7 @@ function checkStatus(xhr){//{{{
 	if(tmp) return false;
 	// 查看是否登录
 	if(typeof xhr.getResponseHeader('x-not-login') == 'undefined'){
-		top.location='/admin778899.php/user/login';
+		top.location='/index.php/user/login';
 		return false;
 	}
 	// 检查是否跳转
@@ -335,7 +335,7 @@ function cashLogDelete(err, data){
 
 // 弹出充值页
 function rechargModal(){
-	$.get('/admin778899.php/' + 'business/rechargeModal', function(html){
+	$.get('/index.php/' + 'business/rechargeModal', function(html){
 
 		$(html).dialog({
 			title:'用户充值',
@@ -366,7 +366,7 @@ function rechargModal(){
 						return;
 					}
 
-					$.ajax( '/admin778899.php/' + 'business/rechargeAction/' + uid + '/' + amount+ '/' + userRid+ '/' + remarks, {
+					$.ajax( '/index.php/' + 'business/rechargeAction/' + uid + '/' + amount+ '/' + userRid+ '/' + remarks, {
 						dataType:'json',
 						error:defaultError,
 						success:defaultSuccess
@@ -448,7 +448,7 @@ function betLogSearchPageAction(page){
 //{{{
 
 function manageAddManagerModal(){
-	$.get('/admin778899.php/' + 'manage/addManagerModal', function(html){
+	$.get('/index.php/' + 'manage/addManagerModal', function(html){
 
 		$(html).dialog({
 			title:'添加管理员',
@@ -472,7 +472,7 @@ function manageAddManagerModal(){
 //{{{
 
 function payAddModal(){
-	$.get('/admin778899.php/' + 'pays/addpaymodal', function(html){
+	$.get('/index.php/' + 'pays/addpaymodal', function(html){
 
 		$(html).dialog({
 			title:'添加接口',
@@ -770,7 +770,7 @@ function doUpdateNotice(err, data){
  */
 function sysEditBank(id){
 
-	$('<div class="bank-modal"><iframe frameborder="0" src="/admin778899.php/system/bankModal/'+(id||'')+'" style="width:480px;height:230px;"></iframe></div>')
+	$('<div class="bank-modal"><iframe frameborder="0" src="/index.php/system/bankModal/'+(id||'')+'" style="width:480px;height:230px;"></iframe></div>')
 	.dialog({
 		title:'编辑银行',
 		width:500,
@@ -788,7 +788,7 @@ function sysEditBank(id){
 
 function sysEditBanklist(id){
 
-	$('<div class="bank-modal"><iframe frameborder="0" src="/admin778899.php/system/sysbankModal/'+(id||'')+'" style="width:480px;height:300px;"></iframe></div>')
+	$('<div class="bank-modal"><iframe frameborder="0" src="/index.php/system/sysbankModal/'+(id||'')+'" style="width:480px;height:300px;"></iframe></div>')
 	.dialog({
 		title:'编辑银行',
 		width:500,
@@ -847,7 +847,7 @@ function ReloadBanklist(err, data){
 }
 
 function memberEditBank(id){
-	$('<div class="bank-modals"><iframe frameborder="0" src="/admin778899.php/system/bankModal2/'+(id||'')+'" style="width:480px;height:230px;"></iframe></div>')
+	$('<div class="bank-modals"><iframe frameborder="0" src="/index.php/system/bankModal2/'+(id||'')+'" style="width:480px;height:230px;"></iframe></div>')
 	.dialog({
 		title:'编辑银行',
 		width:500,
@@ -1014,7 +1014,7 @@ function serviceSave(err,data){
 //添加商品
 function scoreEditGoods(id){
 
-	$('<div class="goods-modal"><iframe frameborder="0" src="/admin778899.php/Score/goodsModal/'+(id||'')+'" style="width:580px;height:470px;"></iframe></div>')
+	$('<div class="goods-modal"><iframe frameborder="0" src="/index.php/Score/goodsModal/'+(id||'')+'" style="width:580px;height:470px;"></iframe></div>')
 	.dialog({
 		title:'编辑商品',
 		width:600,
@@ -1253,7 +1253,7 @@ function fabuxiaoxi(err, data){
 }
 
 function fabuxiaoxi(){
-	$.get('/admin778899.php/' + 'member/fabuxiaoxi', function(html){
+	$.get('/index.php/' + 'member/fabuxiaoxi', function(html){
 
 		$(html).dialog({
 			title:'发布消息',

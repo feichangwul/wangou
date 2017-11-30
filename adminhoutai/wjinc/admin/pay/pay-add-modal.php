@@ -1,6 +1,6 @@
 <div class="manage-edit">
 <input type="hidden" value="<?=$this->user['username']?>" />
-<form action="/admin778899.php/pays/addpay" target="ajax" method="post" call="Addpay" onajax="BeforeAddpay">
+<form action="/index.php/pays/addpay" target="ajax" method="post" call="Addpay" onajax="BeforeAddpay">
 	<table class="tablesorter left" cellspacing="0"> 
 	<tbody> 
 		<tr> 

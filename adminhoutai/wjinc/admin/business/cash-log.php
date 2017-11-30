@@ -36,7 +36,7 @@ function cashTrue(){
 <article class="module width_full">
 <input type="hidden" value="<?=$this->user['username']?>" />
 	<header><h3 class="tabs_involved">提现记录
-		<form action="/admin778899.php/business/cashLogList" class="submit_link wz" target="ajax" dataType="html" onajax="cashBeforeSubmit" call="cashLogList">
+		<form action="/index.php/business/cashLogList" class="submit_link wz" target="ajax" dataType="html" onajax="cashBeforeSubmit" call="cashLogList">
             用户：<input type="text" class="alt_btn" style="width:100px;" value="用户名" name="username"/>&nbsp;&nbsp;
 			时间：从&nbsp;<input type="date" class="alt_btn" name="fromTime"/> 到 <input type="date" class="alt_btn" name="toTime"/>&nbsp;&nbsp;
 			<input type="submit" value="查找" class="alt_btn">

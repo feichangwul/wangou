@@ -30,7 +30,7 @@
 				<td><?=$var['home']?></td>
 				<td><?=$var['sort']?></td>
 				<td><?=$this->iff($var['isDelete'], '关', '开')?></td>
-				<td><a href="/admin778899.php/system/switchBankStatus3/<?=$var['id']?>" target="ajax" call="ReloadBanklist"><?=$this->iff($var['isDelete'], '开启', '关闭')?></a> | <a href="#" onclick="sysEditBanklist(<?=$var['id']?>)">修改</a> | <a href="/admin778899.php/system/deleteBank2/<?=$var['id']?>" target="ajax" call="sysReloadBank">删除</a></td>
+				<td><a href="/index.php/system/switchBankStatus3/<?=$var['id']?>" target="ajax" call="ReloadBanklist"><?=$this->iff($var['isDelete'], '开启', '关闭')?></a> | <a href="#" onclick="sysEditBanklist(<?=$var['id']?>)">修改</a> | <a href="/index.php/system/deleteBank2/<?=$var['id']?>" target="ajax" call="sysReloadBank">删除</a></td>
 			</tr>
 		<?php }else{ ?>
 			<tr>

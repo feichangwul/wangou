@@ -29,7 +29,7 @@
 				<td><?=$var['name']?></td>
 				<td><?=$var['number']?></td>
 				<td><?=$var['mkey']?></td>
-				<td><a href="/admin778899.php/pays/deletepay/<?=$var['sid']?>" target="ajax" call="payDelete" dataType="json">删除</a></td>
+				<td><a href="/index.php/pays/deletepay/<?=$var['sid']?>" target="ajax" call="payDelete" dataType="json">删除</a></td>
 			</tr>
 		<?} ?>
 		</tbody>
