@@ -28,7 +28,7 @@ function doLogin(err, data){
 		alert(err);
 	}else{
 		//alert('验证成功');
-		location='\x2f\x61\x64\x6d\x69\x6e\x37\x37\x38\x38\x39\x39\x2e\x70\x68\x70\x2f';
+        location = '/index.php/user/logined';
 	}
 }
 //window.attachEvent("onload", correctPNG);

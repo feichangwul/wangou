@@ -19,7 +19,7 @@ class User extends Object
     public final function logined()
     {
         header('content-Type: text/html;charset=utf8');
-        $this->display('logined9574512.php');
+        $this->display('logined.php');
     }
 
     public final function logout()
@@ -104,7 +104,9 @@ class User extends Object
             throw new Exception('您不是管理员，不能登录后台。');
         }
 
-        setcookie('username', $username);
+        setcookie('username', $username, strtotime('+2 hour'), "/"); // 86400 = 1 day
+//        $aa=strtotime('+2 hour');
+//        throw new Exception($username.$aa);
     }
 
     public final function checkLogin()

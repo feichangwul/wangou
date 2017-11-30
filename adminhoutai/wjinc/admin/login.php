@@ -19,7 +19,7 @@ function checkLogin(){
 	if(!this.username.value) throw('用户名不能为空');
 	if(!this.vcode.value) throw('验证码不能为空');
 }
-function doLogin(err, data){
+function doLogin(err = false, data){
 	if(err){
 		alert(err);
 		$("#vcode").trigger("click");
