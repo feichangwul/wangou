@@ -1,6 +1,6 @@
 <?php
-	$sql="select c.*, u.username user, u.coin coin, b.name bankName from {$this->prename}member_cash c,{$this->prename}members u, {$this->prename}bank_list b where b.isDelete=0 and c.id={$args[0]} and b.id=c.bankId and c.uid=u.uid";
-	$cashInfo=$this->getRow($sql, $args[0]);
+$sql = "select c.*, u.username user, u.coin coin, b.name bankName from {$this->prename}member_cash c,{$this->prename}members u, {$this->prename}bank_list b where b.isDelete=0 and c.id={$args[0]} and b.id=c.bankId and c.uid=u.uid";
+$cashInfo = $this->getRow($sql, $args[0]);
 ?>
 <div class="cash-modal popupModal">
 	<table width="100%" cellpadding="2" cellspacing="2">
@@ -30,7 +30,7 @@
 		</tr>
         <tr>
 			<td class="title">申请时间</td>
-			<td><?=date("Y-m-d H:i:s",$cashInfo['actionTime'])?></td>
+			<td><?=date("Y-m-d H:i:s", $cashInfo['actionTime'])?></td>
 		</tr>
 	</table>
 </div>

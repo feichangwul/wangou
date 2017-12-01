@@ -1,6 +1,5 @@
 ﻿<?php
 	$para=$_GET;
-	
 	// 默认取今天的数据
 	if(isset($para['date'])){
 		$date=strtotime($para['date']);
@@ -10,20 +9,16 @@
 	// 取彩种信息
 	$sql="select * from {$this->prename}type where id=?";
 	$typeInfo=$this->getRow($sql, $this->type);
-	
 	// 取当前彩种开奖时间表
 	$sql="select * from {$this->prename}data_time where type={$this->type} order by actionTime";
 	$times=$this->getPage($sql, $this->page, $this->pageSize);
-	
 	$dateString=date('Y-m-d ');
-	
 	$sql="select * from {$this->prename}data where type={$this->type} and ";
-	
 	$sqlAmount="select sum(b.mode * b.beiShu * b.actionNum) betAmount, count(distinct(b.playedId)) facount, count(distinct(b.username)) useracount, sum(b.bonus) zjAmount, sum(b.fanDianAmount) fanDianAmount from xy_bets b where type={$this->type} and b.isDelete=0";
 	$all=$this->getRow($sqlAmount);
 ?>
 <article class="module width_full">
-<input type="hidden" value="<?=$this->user['username']?>" />
+	<input type="hidden" value="<?=$this->user['username']?>" />
 	<header>
 		<h3 class="tabs_involved"><?=$typeInfo['title']?>开奖数据
 		<form class="submit_link wz" action="/index.php/data/index/<?=$this->type?>" target="ajax" call="defaultSearch" dataType="html">
@@ -37,7 +32,6 @@
 		</form>
 		</h3>
 	</header>
-
 	<table class="tablesorter" cellspacing="0">
 		<thead>
 			<tr>
@@ -71,22 +65,20 @@
 						if($this->type==1){
 							// 重庆彩特殊处理
 							$number=1000+$var['actionNo'];
-							if($var['actionNo']>120){ 
+							if($var['actionNo']>120){
 								$number=date('Ymd-', strtotime(date('Y-m-d',$date - 1*24*60*60))).substr($number,1);
 							}else{
 								$number=date('Ymd-', $date).substr($number,1);
-									
 							}
 							$sql="select * from {$this->prename}data where type={$this->type} and number='$number'";
 							$data=$this->getRow($sql);
 						}else if($this->type==5){
 							// 分分彩特殊处理
 							$number=10000+$var['actionNo'];
-							if($var['actionNo']>1440){ 
+							if($var['actionNo']>1440){
 								$number=date('Ymd-', strtotime(date('Y-m-d',$date - 1*24*60*60))).substr($number,1);
 							}else{
 								$number=date('Ymd-', $date).substr($number,1);
-									
 							}
 							$sql="select * from {$this->prename}data where type={$this->type} and number='$number'";
 							$data=$this->getRow($sql);
@@ -94,37 +86,31 @@
 						}else if($this->type==12){
 							// 新疆彩特殊处理
 							$number=100+$var['actionNo'];
-							if($var['actionNo']>96){ 
+							if($var['actionNo']>96){
 								$number=date('Ymd-', strtotime(date('Y-m-d',$date - 1*24*60*60))).substr($number,1);
 							}else{
 								$number=date('Ymd-', $date).substr($number,1);
-									
 							}
 							$sql="select * from {$this->prename}data where type={$this->type} and number='$number'";
 							$data=$this->getRow($sql);
-							
 						}else if($this->type==9 || $this->type==10){
 							// 福彩3D
 							$number=date('Yz', $date);
 							$number=substr($number,0,4).substr(substr($number,4)+1001,1);
-							
 							$sql="select * from {$this->prename}data where type={$this->type} and number='$number'";
 							$data=$this->getRow($sql);
-							
 						}else if($this->type==20){
 							// PK10
 							$number = 179*(strtotime(date('Y-m-d', $date))-strtotime('2007-11-11'))/3600/24+$var['actionNo']-14;
 							$sql="select * from {$this->prename}data where type={$this->type} and number='$number'";
 							$data=$this->getRow($sql);
-							
 						}else if($this->type==25){
 							// k3
 							$number=100+$var['actionNo'];
-							if($var['actionNo']>82){ 
+							if($var['actionNo']>82){
 								$number=date('md', strtotime(date('Y-m-d',$date - 1*24*60*60))).substr($number,1);
 							}else{
 								$number=date('md', $date).substr($number,1);
-									
 							}
 							$sql="select * from {$this->prename}data where type={$this->type} and number='$number'";
 							$data=$this->getRow($sql);
@@ -140,7 +126,6 @@
 							$number=substr($number,0,4).substr(substr($number,4)+1000,1);
 							$sql="select * from {$this->prename}data where type={$this->type} and number='$number'";
 							$data=$this->getRow($sql);
-							
 						}else{
 							$number=1000+$var['actionNo'];
 							$number=date('Ymd-', $date).substr($number,1);
@@ -171,57 +156,55 @@
 				<td><?=$this->ifs($amountData['zjAmount'], '--')?></td>
 				<td><?=$this->ifs($amountData['fanDianAmount'], '--')?></td>
 				<td>
-				    <?php if($data['data']){ ?>
+					<?php if($data['data']){ ?>
 					<a href="/index.php/data/updatedata/<?=$this->type?>/<?=$var['actionNo']?>/<?=$dateString.$var['actionTime']?>" target="modal" width="340" title="添加开奖号码" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">修改</a>
 					<a href="/index.php/data/kj" target="ajax" data-type="<?=$typeInfo['id']?>" data-number="<?=$data['number']?>" data-time="<?=$dateString.$var['actionTime']?>" data-data="<?=$data['data']?>" onajax="setKjData" call="setKj" title="重新对没有开奖的投注开奖">开奖</a>
 					<?}else{?>
 					<a href="/index.php/data/add/<?=$this->type?>/<?=$var['actionNo']?>/<?=$dateString.$var['actionTime']?>" target="modal" width="340" title="添加开奖号码" modal="true" button="确定:dataAddCode|取消:defaultCloseModal">添加</a>
 					<?}?>
-                    
 				</td>
 			</tr>
 			<?php } ?>
-            <tr>
-                <td><span class="spn9">本页总结</span></td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
+			<tr>
+				<td><span class="spn9">本页总结</span></td>
 				<td>--</td>
-                <td>--</td>
-                <td><?=$this->ifs($count['betAmount'], '--')?></td>
-                <td><?=$this->ifs($count['zjAmount'], '--')?></td>
-                <td><?=$this->ifs($count['fanDianAmount'], '--')?></td>
-                <td>--</td>
-            </tr>
-            <tr>
-                <td><span class="spn9">全部总结</span></td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
 				<td>--</td>
-                <td>--</td>
-                <td><?=$this->ifs($all['betAmount'], '--')?></td>
-                <td><?=$this->ifs($all['zjAmount'], '--')?></td>
-                <td><?=$this->ifs($all['fanDianAmount'], '--')?></td>
-                <td>--</td>
-            </tr>
-
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td><?=$this->ifs($count['betAmount'], '--')?></td>
+				<td><?=$this->ifs($count['zjAmount'], '--')?></td>
+				<td><?=$this->ifs($count['fanDianAmount'], '--')?></td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td><span class="spn9">全部总结</span></td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td>--</td>
+				<td><?=$this->ifs($all['betAmount'], '--')?></td>
+				<td><?=$this->ifs($all['zjAmount'], '--')?></td>
+				<td><?=$this->ifs($all['fanDianAmount'], '--')?></td>
+				<td>--</td>
+			</tr>
 		</tbody>
 	</table>
 	<footer>
-	<?php
-		//$rel=$args[0]['id'];
-		if($para){
-			$rel.='?'.http_build_query($para,'','&');
-		}
-		$rel=$this->controller.'/'.$this->action .'-{page}/'.$this->type.'?'.http_build_query($_GET,'','&');
-		$this->display('inc/page.php', 0, $times['total'], $rel, 'dataPageAction');
-	?>
+		<?php
+			//$rel=$args[0]['id'];
+			if($para){
+				$rel.='?'.http_build_query($para,'','&');
+			}
+			$rel=$this->controller.'/'.$this->action .'-{page}/'.$this->type.'?'.http_build_query($_GET,'','&');
+			$this->display('inc/page.php', 0, $times['total'], $rel, 'dataPageAction');
+		?>
 	</footer>
 </article>

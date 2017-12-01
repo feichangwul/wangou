@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
 $(function(){
 	$('.tabs_involved input[name=username]')
@@ -11,9 +10,7 @@ $(function(){
 	.keypress(function(e){
 		if(e.keyCode==13) $(this).closest('form').submit();
 	});
-	
 });
-
 function cashBeforeSubmit(){
 	//alert(this.name);
 }
@@ -24,7 +21,6 @@ function cashLogList(err, data){
 		$('.tab_content').html(data);
 	}
 }
-
 function cashFalse(){
 	$('.cashFalseSM').css('display','block');
 }

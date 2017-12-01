@@ -28,7 +28,7 @@ function doLogin(err, data){
 		alert(err);
 	}else{
 		//alert('验证成功');
-        location = '/index.php/user/logined';
+        location = '/index.php/';
 	}
 }
 //window.attachEvent("onload", correctPNG);

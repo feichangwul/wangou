@@ -11,7 +11,6 @@ class Object extends DBAccess{
 		if($argc==0) throw new Exception('Template is null');
 		$__tplfile=$this->actionTemplate .$args[0];
 		unset($args[0]);
-		
 		if($argc>=2){
 			$__expire=$args[1];
 			unset($args[1]);
@@ -34,15 +33,12 @@ class Object extends DBAccess{
 		}else{
 			$argc=0;
 		}
-		
 		include $__tplfile;
 	}
-	
 	public function error($message, $isExit=null){
 		header('X-Error-Message: '.rawurlencode($message));
 		if($isExit===true) die;
 	}
-	
 	public function debug($message, $error_level=9){
 		var_dump($error_level);
 		var_dump($this->debugLevel);
@@ -54,7 +50,6 @@ class Object extends DBAccess{
 			//file_put_contents($this->sysLogFileName, date('[Y-m-d H:i:s] ', $this->time)."写用户日志文件{$this->debugLevel}出错：".$e->getmessage()."\r\n", FILE_APPEND);
 		}
 	}
-
 	/**
 	 * 获取来访IP地址
 	 */
@@ -79,7 +74,6 @@ class Object extends DBAccess{
 		}
 		return $outFormatAsLong?ip2long($ip):$ip;
 	}
-	
 	/**
 	 * 把对象转换为数组
 	 * 可以转换xml对象，使xml转换成数组
@@ -89,11 +83,9 @@ class Object extends DBAccess{
 		if(is_array($o)) foreach ($o as $k => $v) $o[$k] = jms_obj2arr($v);
 		return $o;
 	}
-	
 	public static final function iff($if, $true, $false=''){
 		return $if?$true:$false;
 	}
-	
 	public static final function ifs(){
 		$args=func_get_args();
 		$numargs = func_num_args();
@@ -101,7 +93,6 @@ class Object extends DBAccess{
 			if($args[$i]==='0' || $args[$i]) return $args[$i];
 		}
 	}
-	
 	public static function CsubStr($str,$start,$len,$suffix='...'){
 		preg_match_all("/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|\xe0[\xa0-\xbf][\x80-\xbf]|[\xe1-\xef][\x80-\xbf][\x80-\xbf]|\xf0[\x90-\xbf][\x80-\xbf][\x80-\xbf]|[\xf1-\xf7][\x80-\xbf][\x80-\xbf][\x80-\xbf]/", $str, $info);
 		$len*=2;
@@ -118,7 +109,6 @@ class Object extends DBAccess{
 		}
 		return array_key_exists($start,$info[0]) ? $tmpstr.=$suffix : $tmpstr;
 	}
-	
 	/**
 	 * 添加日志
 	 */

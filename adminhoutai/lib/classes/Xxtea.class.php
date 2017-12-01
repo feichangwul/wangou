@@ -1,12 +1,13 @@
 <?php
-
-class Xxtea{
+class Xxtea {
 	public static function long2str($v, $w) {
 		$len = count($v);
 		$n = ($len - 1) << 2;
 		if ($w) {
 			$m = $v[$len - 1];
-			if (($m < $n - 3) || ($m > $n)) return false;
+			if (($m < $n - 3) || ($m > $n)) {
+				return false;
+			}
 			$n = $m;
 		}
 		$s = array();
@@ -15,27 +16,27 @@ class Xxtea{
 		}
 		if ($w) {
 			return substr(join('', $s), 0, $n);
-		}
-		else {
+		} else {
 			return join('', $s);
 		}
 	}
-	
 	public static function str2long($s, $w) {
-		$v = unpack('V*', $s. str_repeat("\0", (4 - strlen($s) % 4) & 3));
+		$v = unpack('V*', $s . str_repeat("\0", (4 - strlen($s) % 4) & 3));
 		$v = array_values($v);
 		if ($w) {
 			$v[count($v)] = strlen($s);
 		}
 		return $v;
 	}
-	
 	public static function int32($n) {
-		while ($n >= 2147483648) $n -= 4294967296;
-		while ($n <= -2147483649) $n += 4294967296;
-		return (int)$n;
+		while ($n >= 2147483648) {
+			$n -= 4294967296;
+		}
+		while ($n <= -2147483649) {
+			$n += 4294967296;
+		}
+		return (int) $n;
 	}
-	
 	public static function encrypt($str, $key) {
 		if ($str == '') {
 			return '';
@@ -48,7 +49,6 @@ class Xxtea{
 			}
 		}
 		$n = count($v) - 1;
-	
 		$z = $v[$n];
 		$y = $v[0];
 		$delta = 0x9E3779B9;
@@ -68,7 +68,6 @@ class Xxtea{
 		}
 		return self::long2str($v, false);
 	}
-	
 	public static function decrypt($str, $key) {
 		if ($str == '') {
 			return '';
@@ -81,7 +80,6 @@ class Xxtea{
 			}
 		}
 		$n = count($v) - 1;
-	
 		$z = $v[$n];
 		$y = $v[0];
 		$delta = 0x9E3779B9;

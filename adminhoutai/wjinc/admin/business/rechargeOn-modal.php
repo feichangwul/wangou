@@ -1,7 +1,7 @@
 <?php
-    $this->getSystemSettings();
-	$sql="select r.*,u.username username from {$this->prename}member_recharge r, {$this->prename}members u where r.uid=u.uid and r.id=?";
-	$rechargeData=$this->getRow($sql, $args[0]);
+$this->getSystemSettings();
+$sql = "select r.*,u.username username from {$this->prename}member_recharge r, {$this->prename}members u where r.uid=u.uid and r.id=?";
+$rechargeData = $this->getRow($sql, $args[0]);
 ?>
 <div>
 <input type="hidden" value="<?=$this->user['username']?>" />
@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<th>实际到账：</th>
-		<td><input type="text" name="rechargeAmount" value="<?=$this->iff($this->settings['czzs'],number_format($rechargeData['amount']*(1+$this->settings['czzs']/100.00),2,'.',''),$rechargeData['amount'])?>"/></td>
+		<td><input type="text" name="rechargeAmount" value="<?=$this->iff($this->settings['czzs'], number_format($rechargeData['amount'] * (1 + $this->settings['czzs'] / 100.00), 2, '.', ''), $rechargeData['amount'])?>"/></td>
 	</tr>
 	<tr>
 		<th><span class="spn9">提示：</span></th>

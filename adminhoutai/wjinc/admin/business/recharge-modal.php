@@ -1,5 +1,5 @@
 <table cellpadding="0" cellspacing="0" width="320" class="layout">
-<input type="hidden" value="<?=$this->user['username']?>" />
+	<input type="hidden" value="<?=$this->user['username']?>" />
 	<tr>
 		<th>选择充值：</th>
 		<td><label>用户名<input type="radio" name="user" value="2" checked="checked" /></label> <label>UserID<input type="radio" name="user" value="1" /></label></td>
@@ -12,7 +12,7 @@
 		<th>充值金额：</th>
 		<td><input type="text" name="amount" min="100" /><span style="color:#F00">负数为扣款！</span></td>
 	</tr>
-                       <tr>
+	<tr>
 		<th>备注:</th>
 		<td><input type="text" name="remarks" /></td>
 	</tr>

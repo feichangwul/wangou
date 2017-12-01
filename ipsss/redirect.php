@@ -1,86 +1,44 @@
 <?php
 include '../config.php';
-header("Content-type:text/html; charset=gb2312"); 
-
+header("Content-type:text/html; charset=gb2312");
 //提交地址
 $form_url = 'https://pay.ips.net.cn/ipayment.aspx'; //测试
-
 //$form_url = 'https://pay.ips.com.cn/ipayment.aspx'; //正式
-
 //商户号
 $Mer_code = "000015";
-
 //商户证书：登陆http://merchant.ips.com.cn/商户后台下载的商户证书内容
 $Mer_key = "GDgLwwdK270Qj1w4xho8lyTpRQZV9Jm5x4NwWOTThUa4fMhEBK9jOXFrKRT6xhlJuU2FEa89ov0ryyjfJuuPkcGzO5CeVx5ZIrkkt1aBlZV36ySvHOMcNv8rncRiy3DQ";
-
-
 $Billno = intval($_POST['Billno']);
-
-
 $Amount = number_format($_POST['Amount'], 2, '.', '');
-
-
 $Date = date('Ymd');
-
-
 $Currency_Type = "RMB";
-
-
 $Gateway_Type = "01";
-
-
 $Lang = "GB";
-
 //支付结果成功返回的商户URL
 $Merchanturl = "http://msgyc.com/ipsss/OrderReturn.php";
-
-
 $FailUrl = "";
-
-
 $ErrorUrl = "";
-
-
 $Attach = $_POST['Attach'];
-
-
 $DispAmount = number_format($_POST['Amount'], 2, '.', '');
-
-
 $OrderEncodeType = "5";
-
-
 $RetEncodeType = "17";
-
-
 $Rettype = "1";
-
-$time = date("Y-m-d H:i:s",time()+28800-date("Z",time()));
-
-$conn = mysql_connect($dbhost,$conf['db']['user'],$conf['db']['password']);
-if (!$conn)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-mysql_select_db($dbname,$conn);
-
+$time = date("Y-m-d H:i:s", time() + 28800 - date("Z", time()));
+$conn = mysql_connect($dbhost, $conf['db']['user'], $conf['db']['password']);
+if (!$conn) {
+	die('Could not connect: ' . mysql_error());
+}
+mysql_select_db($dbname, $conn);
 $Attach = mysql_escape_string($Attach);
 $Billno = mysql_escape_string($Billno);
 $Amount = mysql_escape_string($Amount);
-
 $info = "INSERT INTO ssc_order(order_number, username, recharge_amount, state, time)
-VALUES('".$Billno."', '".$Attach."', '".$Amount."', '0', '".$time."')";
-
+VALUES('" . $Billno . "', '" . $Attach . "', '" . $Amount . "', '0', '" . $time . "')";
 mysql_query($info);
-
 mysql_close($conn);
-
 $ServerUrl = "http://msgyc.com/ipsss/OrderReturn.php";
-
-$orge = 'billno'.$Billno.'currencytype'.$Currency_Type.'amount'.$Amount.'date'.$Date.'orderencodetype'.$OrderEncodeType.$Mer_key ;
-
-$SignMD5 = md5($orge) ;
-
+$orge = 'billno' . $Billno . 'currencytype' . $Currency_Type . 'amount' . $Amount . 'date' . $Date . 'orderencodetype' . $OrderEncodeType . $Mer_key;
+$SignMD5 = md5($orge);
 ?>
 <html>
   <head>

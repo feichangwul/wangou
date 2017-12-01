@@ -1,65 +1,62 @@
 <?php
-	$this->getTypes();
-	$this->getPlayeds();
-
-	
-	// 帐号限制
-	if($_REQUEST['username']){
-		$_REQUEST['username']=wjStrFilter($_REQUEST['username']);
-		if(!ctype_alnum($_REQUEST['username'])) throw new Exception('用户名包含非法字符,请重新输入');
-		$userWhere="and b.username like '%{$_REQUEST['username']}%'";
+$this->getTypes();
+$this->getPlayeds();
+// 帐号限制
+if ($_REQUEST['username']) {
+	$_REQUEST['username'] = wjStrFilter($_REQUEST['username']);
+	if (!ctype_alnum($_REQUEST['username'])) {
+		throw new Exception('用户名包含非法字符,请重新输入');
 	}
-	
-	//期号
-	if($_REQUEST['actionNo']){
-		$_REQUEST['actionNo']=wjStrFilter($_REQUEST['actionNo']);
-		$actionNoWhere=" and b.actionNo='{$_REQUEST['actionNo']}'";
+	$userWhere = "and b.username like '%{$_REQUEST['username']}%'";
+}
+//期号
+if ($_REQUEST['actionNo']) {
+	$_REQUEST['actionNo'] = wjStrFilter($_REQUEST['actionNo']);
+	$actionNoWhere = " and b.actionNo='{$_REQUEST['actionNo']}'";
+}
+// 彩种限制
+if ($_REQUEST['type'] = intval($_REQUEST['type'])) {
+	$typeWhere = " and b.type={$_REQUEST['type']}";
+}
+// 下注来源限制
+//if($_REQUEST['betType']!=''){
+//$_REQUEST['betType']=wjStrFilter($_REQUEST['betType']);
+//$betTypeWhere=" and b.betType={$_REQUEST['betType']}";
+//}
+// 时间限制
+if ($_REQUEST['fromTime'] && $_REQUEST['toTime']) {
+	$fromTime = strtotime($_REQUEST['fromTime']);
+	$toTime = strtotime($_REQUEST['toTime']) + 24 * 3600;
+	$timeWhere = "and b.actionTime between $fromTime and $toTime";
+} elseif ($_REQUEST['fromTime']) {
+	$fromTime = strtotime($_REQUEST['fromTime']);
+	$timeWhere = "and b.actionTime>=$fromTime";
+} elseif ($_REQUEST['toTime']) {
+	$toTime = strtotime($_REQUEST['toTime']) + 24 * 3600;
+	$timeWhere = "and b.actionTime<$fromTime";
+} else {
+	$timeWhere = ' and b.actionTime>' . strtotime('00:00');
+}
+$sql = "select * from {$this->prename}bets b where 1 $timeWhere $actionNoWhere $typeWhere $betTypeWhere $userWhere order by b.id desc";
+if ($_REQUEST['id']) {
+	$_REQUEST['id'] = wjStrFilter($_REQUEST['id']);
+	if (!ctype_alnum($_REQUEST['id'])) {
+		throw new Exception('单号包含非法字符,请重新输入');
 	}
-
-	// 彩种限制
-	if($_REQUEST['type']=intval($_REQUEST['type'])){
-		$typeWhere=" and b.type={$_REQUEST['type']}";
-	}
-	// 下注来源限制
-	//if($_REQUEST['betType']!=''){
-		//$_REQUEST['betType']=wjStrFilter($_REQUEST['betType']);
-		//$betTypeWhere=" and b.betType={$_REQUEST['betType']}";
-	//}
-
-	// 时间限制
-	if($_REQUEST['fromTime'] && $_REQUEST['toTime']){
-		$fromTime=strtotime($_REQUEST['fromTime']);
-		$toTime=strtotime($_REQUEST['toTime'])+24*3600;
-		$timeWhere="and b.actionTime between $fromTime and $toTime";
-	}elseif($_REQUEST['fromTime']){
-		$fromTime=strtotime($_REQUEST['fromTime']);
-		$timeWhere="and b.actionTime>=$fromTime";
-	}elseif($_REQUEST['toTime']){
-		$toTime=strtotime($_REQUEST['toTime'])+24*3600;
-		$timeWhere="and b.actionTime<$fromTime";
-	}else{
-		$timeWhere=' and b.actionTime>'.strtotime('00:00');;
-	}
-	$sql="select * from {$this->prename}bets b where 1 $timeWhere $actionNoWhere $typeWhere $betTypeWhere $userWhere order by b.id desc";
-	if($_REQUEST['id']){
-	$_REQUEST['id']=wjStrFilter($_REQUEST['id']);
-	if(!ctype_alnum($_REQUEST['id'])) throw new Exception('单号包含非法字符,请重新输入');
-	$sql="select * from {$this->prename}bets b where b.wjorderId='{$_REQUEST['id']}'";}
-
-	$data=$this->getPage($sql, $this->page, $this->pageSize);
-	
-	$mname=array(
-		'2.000'=>'元',
-		'0.200'=>'角',
-		'0.020'=>'分',
-		'0.002'=>'厘'
-	);
+	$sql = "select * from {$this->prename}bets b where b.wjorderId='{$_REQUEST['id']}'";}
+$data = $this->getPage($sql, $this->page, $this->pageSize);
+$mname = array(
+	'2.000' => '元',
+	'0.200' => '角',
+	'0.020' => '分',
+	'0.002' => '厘',
+);
 ?>
 <article class="module width_full">
-<input type="hidden" value="<?=$this->user['username']?>" />
+	<input type="hidden" value="<?=$this->user['username']?>" />
 	<header>
 		<h3 class="tabs_involved">普通投注
-			<div class="submit_link wz">
+		<div class="submit_link wz">
 			<form action="/index.php/business/betLog" target="ajax" call="defaultSearch" dataType="html">
 				期号<input type="text" class="alt_btn" name="actionNo" style="width:90px;" value="<?=$_REQUEST['actionNo']?>"/>
 				单号<input type="text" class="alt_btn" name="id" style="width:90px;"/>&nbsp;&nbsp;
@@ -67,16 +64,19 @@
 				时间从 <input type="date" class="alt_btn" name="fromTime"/> 到 <input type="date" name="toTime" class="alt_btn"/>&nbsp;&nbsp;
 				<select style="width:100px;" name="type">
 					<option value="">全部彩种</option>
-				<?php if($this->types) foreach($this->types as $var){
-					if($var['enable'] && !$var['isDelete']){
-				?>
+					<?php if ($this->types) {
+	foreach ($this->types as $var) {
+		if ($var['enable'] && !$var['isDelete']) {
+			?>
 					<option value="<?=$var['id']?>" title="<?=$var['title']?>"><?=$this->ifs($var['shortName'], $var['title'])?></option>
-				<?php }} ?>
+					<?php }}
+}
+?>
 				</select>&nbsp;&nbsp;
 				<input type="submit" value="查找" class="alt_btn">
 				<input type="reset" value="重置条件">
 			</form>
-			</div>
+		</div>
 		</h3>
 	</header>
 	<table class="tablesorter" cellspacing="0">
@@ -99,49 +99,52 @@
 			</tr>
 		</thead>
 		<tbody id="nav01">
-		<?php if($data['data']) foreach($data['data'] as $var){ ?>
+			<?php if ($data['data']) {
+	foreach ($data['data'] as $var) {
+		?>
 			<tr data-code='<?=json_encode($var)?>'>
 				<td><a href="/index.php/business/betInfo/<?=$var['id']?>" button="确定:defaultCloseModal" title="投注信息" width="510" target="modal"><?=$var['wjorderId']?></a></td>
 				<td><?=$var['username']?></td>
 				<td><?=date('m-d H:i', $var['actionTime'])?></td>
-				<td><?=$this->ifs($this->types[$var['type']]['shortName'],$this->types[$var['type']]['title'])?></td>
+				<td><?=$this->ifs($this->types[$var['type']]['shortName'], $this->types[$var['type']]['title'])?></td>
 				<td><?=$this->playeds[$var['playedId']]['name']?></td>
 				<td><?=$var['actionNo']?></td>
 				<td><?=$var['beiShu']?></td>
 				<td><?=$var['actionNum']?></td>
 				<td><?=$mname[$var['mode']]?></td>
-				<td data-code="<?=$var['actionData']?>"><?=$this->CsubStr($var['actionData'],0,10)?></td>
+				<td data-code="<?=$var['actionData']?>"><?=$this->CsubStr($var['actionData'], 0, 10)?></td>
 				<td><?=number_format($var['mode'] * $var['beiShu'] * $var['actionNum'], 2)?></td>
 				<td>
-				<?php 
-				if($var['isDelete']==1){
-					echo '已撤单';
-				}else{
-					if($var['lotteryNo']){
-						echo number_format($var['zjCount'] * $var['bonusProp'] * $var['beiShu'] * $var['mode']/2, 2);
-					}else{
-						echo '未开奖';
-					}
-				}
-				?>
-                </td>
+					<?php
+if ($var['isDelete'] == 1) {
+			echo '已撤单';
+		} else {
+			if ($var['lotteryNo']) {
+				echo number_format($var['zjCount'] * $var['bonusProp'] * $var['beiShu'] * $var['mode'] / 2, 2);
+			} else {
+				echo '未开奖';
+			}
+		}
+		?>
+				</td>
 				<td><?=$var['fanDianAmount']?></td>
-				<td><?php if($var['lotteryNo'] || $var['isDelete']==1){ ?>--<?php }else{ ?><a href="/index.php/business/betInfoUpdate/<?=$var['id']?>" button="修改:dataAddCode|取消:defaultCloseModal" title="修改投注信息" width="510" target="modal" modal="true">修改</a></td><?php } ?>
+				<td><?php if ($var['lotteryNo'] || $var['isDelete'] == 1) {?>--<?php } else {?><a href="/index.php/business/betInfoUpdate/<?=$var['id']?>" button="修改:dataAddCode|取消:defaultCloseModal" title="修改投注信息" width="510" target="modal" modal="true">修改</a></td><?php }?>
 			</tr>
-		<?php }else{ ?>
-    <tr>
-        <td colspan="9" align="center">暂时没有投注记录。</td>
-    </tr>
-<?php } ?>
+			<?php }
+} else {?>
+			<tr>
+				<td colspan="9" align="center">暂时没有投注记录。</td>
+			</tr>
+			<?php }?>
 		</tbody>
 	</table>
 	<footer>
-	<?php
-		$rel=get_class($this).'/betLog-{page}?'.http_build_query($_GET,'','&');
-		$this->display('inc/page.php', 0, $data['total'], $rel, 'betLogSearchPageAction'); 
-	?>
+		<?php
+$rel = get_class($this) . '/betLog-{page}?' . http_build_query($_GET, '', '&');
+$this->display('inc/page.php', 0, $data['total'], $rel, 'betLogSearchPageAction');
+?>
 	</footer>
 </article>
-<script type="text/javascript">  
-ghhs("nav01","tr");  
+<script type="text/javascript">
+ghhs("nav01","tr");
 </script>

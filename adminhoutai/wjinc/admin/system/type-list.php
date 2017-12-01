@@ -1,6 +1,6 @@
 ﻿<?php
-	$data=$this->getRows("select * from {$this->prename}type where isDelete=0 order by sort");
-	//print_r($data);
+$data = $this->getRows("select * from {$this->prename}type where isDelete=0 order by sort");
+//print_r($data);
 ?>
 <article class="module width_full">
 <input type="hidden" value="<?=$this->user['username']?>" />
@@ -17,20 +17,23 @@
 			</tr>
 		</thead>
 		<tbody id="nav01">
-		<?php if($data) foreach($data as $var){ ?>
+		<?php if ($data) {
+	foreach ($data as $var) {?>
 			<tr>
 				<td><input name="title" value="<?=$var['title']?>"/></td>
 				<td><input name="shortName" value="<?=$var['shortName']?>"/></td>
 				<td><input type="text" name="data_ftime"  class="textWid1" placeholder="秒" value="<?=$var['data_ftime']?>"/></td>
-				<td><input type="checkbox" name="enable" value="1" <?=$this->iff($var['enable'],'checked')?>/></td>
-               
+				<td><input type="checkbox" name="enable" value="1" <?=$this->iff($var['enable'], 'checked')?>/></td>
+
 				<td><input type="text" name="sort"  class="textWid1" value="<?=$var['sort']?>"/></td>
 				<td><a href="/index.php/system/updateType/<?=$var['id']?>" target="ajax" method="POST" onajax="sysBeforeUpdateType" call="sysUpdateType">保存修改</a></td>
 			</tr>
-		<?php  } ?>
+		<?php }
+}
+?>
 		</tbody>
 	</table>
 </article>
-<script type="text/javascript">  
-ghhs("nav01","tr");  
+<script type="text/javascript">
+ghhs("nav01","tr");
 </script>

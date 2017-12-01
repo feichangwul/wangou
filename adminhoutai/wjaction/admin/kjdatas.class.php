@@ -1,9 +1,9 @@
 <?php
-class kjdatas extends AdminBase{
+class kjdatas extends AdminBase {
 	/**
 	 * 开奖检测
 	 */
-	public final function tests(){
+	public final function tests() {
 		$this->display('kjdatas/list.php');
 	}
 }
