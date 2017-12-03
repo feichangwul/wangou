@@ -167,11 +167,11 @@ $all = $this->getRow($sqlAmount);
                         <a href="/index.php/data/kj" target="ajax" data-type="<?= $typeInfo['id'] ?>"
                            data-number="<?= $data['number'] ?>" data-time="<?= $dateString . $var['actionTime'] ?>"
                            data-data="<?= $data['data'] ?>" onajax="setKjData" call="setKj" title="重新对没有开奖的投注开奖">开奖</a>
-                    <? } else { ?>
+                    <?php } else { ?>
                         <a href="/index.php/data/add/<?= $this->type ?>/<?= $var['actionNo'] ?>/<?= $dateString . $var['actionTime'] ?>"
                            target="modal" width="340" title="添加开奖号码" modal="true"
                            button="确定:dataAddCode|取消:defaultCloseModal">添加</a>
-                    <? } ?>
+                    <?php } ?>
                 </td>
             </tr>
         <?php } ?>
@@ -210,10 +210,10 @@ $all = $this->getRow($sqlAmount);
     <footer>
         <?php
         //$rel=$args[0]['id'];
+        $rel = $this->controller . '/' . $this->action . '-{page}/' . $this->type . '?' . http_build_query($_GET, '', '&');
         if ($para) {
             $rel .= '?' . http_build_query($para, '', '&');
         }
-        $rel = $this->controller . '/' . $this->action . '-{page}/' . $this->type . '?' . http_build_query($_GET, '', '&');
         $this->display('inc/page.php', 0, $times['total'], $rel, 'dataPageAction');
         ?>
     </footer>
