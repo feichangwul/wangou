@@ -718,13 +718,13 @@ exports.restartTime=1;
 exports.submit={
 
 	host:'localhost',
-	path:'/admin/778899.php/dataSource/kj'
+	path:'/index.php/dataSource/kj'
 }
 
 exports.dbinfo={
 	host:'localhost',
 	user:'root',
-    	password:'root',// password:'gA~!@Ghangfjsx',
+    	password:'',// password:'gA~!@Ghangfjsx',
 	database:'wanjinyule'
 }
 
