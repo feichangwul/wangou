@@ -1,9 +1,11 @@
-﻿<!--//复制程序 flash+js------end-->
-<?php
-$mBankId = $args[0]['mBankId'];
-$sql = "select mb.*, b.name bankName, b.logo bankLogo, b.home bankHome from {$this->prename}sysadmin_bank mb, {$this->prename}bank_list b where mb.id=$mBankId and b.isDelete=0 and mb.bankId=b.id";
-$memberBank = $this->getRow($sql);
-if ($mBankId == 267) {
+﻿<?php
+$mBankId = isset($args[0]['mBankId'])?$args[0]['mBankId']:0;
+if (isset($this->prename))
+{
+    $sql = "select mb.*, b.name bankName, b.logo bankLogo, b.home bankHome from {$this->prename}sysadmin_bank mb, {$this->prename}bank_list b where mb.id=$mBankId and b.isDelete=0 and mb.bankId=b.id";
+    $memberBank = $this->getRow($sql);
+}
+if (!empty($mBankId) && $mBankId == 267) {
     ?>
     <!--左边栏body-->
     <style>

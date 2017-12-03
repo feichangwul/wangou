@@ -147,9 +147,12 @@
             <form action="/index.php/cash/inRecharge" method="post" target="ajax" onajax="checkRecharge" call="toCash"
                   dataType="html">
                 <?php
-                $sql = "select * from {$this->prename}bank_list b, {$this->prename}sysadmin_bank m where m.admin=1 and m.enable=1 and b.isDelete=0 and b.id=m.bankId";
-                $banks = $this->getRows($sql);
-                if ($banks) {
+                if (isset($this->prename))
+                {
+                    $sql = "select * from {$this->prename}bank_list b, {$this->prename}sysadmin_bank m where m.admin=1 and m.enable=1 and b.isDelete=0 and b.id=m.bankId";
+                    $banks = $this->getRows($sql);
+                }
+                if (isset($banks) && !empty($banks)) {
                     ?>
                     <table width="100%" border="0" cellspacing="1" cellpadding="4" class='table_b'>
                         <tr class='table_b_th'>
