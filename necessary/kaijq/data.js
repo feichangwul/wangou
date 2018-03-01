@@ -1,11 +1,11 @@
 ﻿var played={}, mysql=require('mysql'),
-http=require('http'),
-url=require('url'),
-crypto=require('crypto'),
-querystring=require('querystring'),
+http=require('http'), //To make Node.js act as an HTTP server
+url=require('url'), //To parse URL strings
+crypto=require('crypto'), //To handle OpenSSL cryptographic functions
+querystring=require('querystring'), //To handle URL query strings
 config=require('./config.js'),
 calc=require('./kj-data/kj-calc-time.js'),
-exec=require('child_process').exec,
+exec=require('child_process').exec, //To run a child process
 execPath=process.argv.join(" "),
 parse=require('./kj-data/parse-calc-count.js');
 require('./String-ext.js');
